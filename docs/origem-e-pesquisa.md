@@ -6,7 +6,8 @@ O AlcoLock começou como uma ideia própria de projeto de aprendizagem.
 
 A motivação inicial foi refletir sobre uma situação concreta:
 
-> Como impedir preventivamente que uma pessoa que tenha consumido álcool inicie a condução de um veículo e, ao mesmo tempo, ajudá-la a encontrar uma alternativa segura?
+> A ideia inicial surgiu a partir da reflexão sobre um problema recorrente de segurança no trânsito: a condução de veículos após o consumo de álcool. A partir disso, surgiu a seguinte questão:
+Como impedir preventivamente que uma pessoa que tenha consumido álcool inicie a condução de um veículo e, ao mesmo tempo, oferecer alternativas para que ela possa seguir com segurança?
 
 A partir dessa pergunta surgiram, antes da pesquisa bibliográfica posterior, ideias como:
 
@@ -81,8 +82,6 @@ Esse histórico ajuda a demonstrar a evolução do raciocínio e evita que a doc
 
 ## Observação sobre propriedade intelectual
 
-Este documento registra a cronologia e a forma de evolução do projeto para fins de documentação acadêmica e de portfólio.
+Este documento registra a cronologia e a forma de evolução do projeto para fins exclusivamente de documentação acadêmica e de portfólio.
 
-Ele **não constitui parecer jurídico** e não comprova, isoladamente, originalidade legal, patenteabilidade, anterioridade, exclusividade ou titularidade de propriedade intelectual.
-
-Questões desse tipo exigem análise específica de estado da técnica, legislação aplicável e, quando necessário, orientação profissional especializada.
+E
