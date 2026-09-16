@@ -1,0 +1,7 @@
+{
+  "name": "AlcoLock - Bloqueio Veicular Anti-Álcool & Volante Óptico",
+  "description": "Sistema automotivo com dupla validação (sensor de presença no banco + leitura óptica na palma da mão por infravermelho DADSS), bloqueio de ignição e substituição por motorista sóbrio.",
+  "requestFramePermissions": ["camera"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
