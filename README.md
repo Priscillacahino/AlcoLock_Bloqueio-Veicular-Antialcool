@@ -1,472 +1,472 @@
-# 🚗 AlcoLock — Bloqueio Veicular Preventivo por Detecção de Álcool
+﻿# ðŸš— AlcoLock â€” Bloqueio Veicular Preventivo por DetecÃ§Ã£o de Ãlcool
 
-> **Projeto acadêmico e experimental, desenvolvido com finalidade de aprendizagem.**
+> **Projeto acadÃªmico e experimental, desenvolvido com finalidade de aprendizagem.**
 >
-> O AlcoLock não é um sistema automotivo homologado, certificado ou pronto para instalação em veículos reais.
+> O AlcoLock nÃ£o Ã© um sistema automotivo homologado, certificado ou pronto para instalaÃ§Ã£o em veÃ­culos reais.
 
-## 📌 Visão geral
+## ðŸ“Œ VisÃ£o geral
 
-O **AlcoLock** é um conceito de sistema preventivo de segurança veicular pensado para reduzir o risco de condução por uma pessoa que não seja aprovada na validação de álcool antes do início do deslocamento.
+O **AlcoLock** Ã© um conceito de sistema preventivo de seguranÃ§a veicular pensado para reduzir o risco de conduÃ§Ã£o por uma pessoa que nÃ£o seja aprovada na validaÃ§Ã£o de Ã¡lcool antes do inÃ­cio do deslocamento.
 
-A proposta vai além de simplesmente detectar álcool e bloquear o veículo. O projeto também estuda como **sensores, software, experiência do usuário, localização e uma rede de contatos de confiança** podem trabalhar juntos para ajudar o motorista a encontrar uma alternativa segura.
+A proposta vai alÃ©m de simplesmente detectar Ã¡lcool e bloquear o veÃ­culo. O projeto tambÃ©m estuda como **sensores, software, experiÃªncia do usuÃ¡rio, localizaÃ§Ã£o e uma rede de contatos de confianÃ§a** podem trabalhar juntos para ajudar o motorista a encontrar uma alternativa segura.
 
-A ideia central é:
+A ideia central Ã©:
 
 ```text
 detectar risco
-      ↓
-impedir o início da condução
-      ↓
+      â†“
+impedir o inÃ­cio da conduÃ§Ã£o
+      â†“
 explicar o que aconteceu
-      ↓
+      â†“
 oferecer alternativas seguras
-      ↓
+      â†“
 localizar um motorista substituto
-      ↓
-realizar nova validação
-      ↓
-liberar o veículo somente após aprovação
+      â†“
+realizar nova validaÃ§Ã£o
+      â†“
+liberar o veÃ­culo somente apÃ³s aprovaÃ§Ã£o
 ```
 
 ---
 
-# 💡 Origem da ideia e pesquisa posterior
+# ðŸ’¡ Origem da ideia e pesquisa posterior
 
-O AlcoLock nasceu como uma **ideia própria de projeto de aprendizagem**, a partir da reflexão sobre como reduzir o risco de uma pessoa iniciar a condução de um veículo após consumir álcool.
+O AlcoLock nasceu como uma **ideia prÃ³pria de projeto de aprendizagem**, a partir da reflexÃ£o sobre como reduzir o risco de uma pessoa iniciar a conduÃ§Ã£o de um veÃ­culo apÃ³s consumir Ã¡lcool.
 
-A concepção inicial do projeto surgiu **antes de eu ter conhecimento de pesquisas e iniciativas já existentes sobre detecção passiva de álcool em veículos**.
+A concepÃ§Ã£o inicial do projeto surgiu **antes de eu ter conhecimento de pesquisas e iniciativas jÃ¡ existentes sobre detecÃ§Ã£o passiva de Ã¡lcool em veÃ­culos**.
 
-Somente depois de começar a desenvolver e pesquisar formas tecnicamente possíveis de implementar a ideia — incluindo sensores de ar, sensores por contato, identificação do motorista e alternativas para reduzir falsos positivos — tomei conhecimento de programas e estudos que investigam problemas semelhantes.
+Somente depois de comeÃ§ar a desenvolver e pesquisar formas tecnicamente possÃ­veis de implementar a ideia â€” incluindo sensores de ar, sensores por contato, identificaÃ§Ã£o do motorista e alternativas para reduzir falsos positivos â€” tomei conhecimento de programas e estudos que investigam problemas semelhantes.
 
-Essas referências passaram então a ser utilizadas para:
+Essas referÃªncias passaram entÃ£o a ser utilizadas para:
 
-- compreender melhor a viabilidade técnica de determinados conceitos;
-- identificar limitações que eu ainda não havia considerado;
-- comparar diferentes formas de detecção;
-- melhorar a documentação acadêmica do projeto;
-- evitar apresentar como inédita uma tecnologia que já possui pesquisa anterior.
+- compreender melhor a viabilidade tÃ©cnica de determinados conceitos;
+- identificar limitaÃ§Ãµes que eu ainda nÃ£o havia considerado;
+- comparar diferentes formas de detecÃ§Ã£o;
+- melhorar a documentaÃ§Ã£o acadÃªmica do projeto;
+- evitar apresentar como inÃ©dita uma tecnologia que jÃ¡ possui pesquisa anterior.
 
-A existência dessas pesquisas **não foi a origem da concepção do AlcoLock**.
+A existÃªncia dessas pesquisas **nÃ£o foi a origem da concepÃ§Ã£o do AlcoLock**.
 
-O projeto não utiliza código, arquivos, layouts, protótipos ou documentação interna de terceiros como base para sua concepção inicial. As fontes públicas citadas na documentação são utilizadas como **referências técnicas e bibliográficas posteriores**, para contextualizar tecnologias relacionadas e apoiar o processo de aprendizagem.
+O projeto nÃ£o utiliza cÃ³digo, arquivos, layouts, protÃ³tipos ou documentaÃ§Ã£o interna de terceiros como base para sua concepÃ§Ã£o inicial. As fontes pÃºblicas citadas na documentaÃ§Ã£o sÃ£o utilizadas como **referÃªncias tÃ©cnicas e bibliogrÃ¡ficas posteriores**, para contextualizar tecnologias relacionadas e apoiar o processo de aprendizagem.
 
-> Este registro tem finalidade de transparência sobre a evolução do projeto. Ele não representa, por si só, uma análise jurídica de originalidade, autoria, patenteabilidade ou propriedade intelectual.
+> Este registro tem finalidade de transparÃªncia sobre a evoluÃ§Ã£o do projeto. Ele nÃ£o representa, por si sÃ³, uma anÃ¡lise jurÃ­dica de originalidade, autoria, patenteabilidade ou propriedade intelectual.
 
 Mais detalhes em [`docs/origem-e-pesquisa.md`](docs/origem-e-pesquisa.md).
 
 
 ---
 
-## 🎯 Problema
+## ðŸŽ¯ Problema
 
-Uma solução baseada exclusivamente em álcool presente no ar da cabine pode enfrentar situações de ambiguidade.
+Uma soluÃ§Ã£o baseada exclusivamente em Ã¡lcool presente no ar da cabine pode enfrentar situaÃ§Ãµes de ambiguidade.
 
 Exemplos:
 
-- outros ocupantes do veículo também podem ter consumido álcool;
-- o ambiente pode conter interferências;
-- é necessário aumentar a confiança de que a leitura está associada ao motorista;
+- outros ocupantes do veÃ­culo tambÃ©m podem ter consumido Ã¡lcool;
+- o ambiente pode conter interferÃªncias;
+- Ã© necessÃ¡rio aumentar a confianÃ§a de que a leitura estÃ¡ associada ao motorista;
 - leituras inconclusivas ou falsos positivos precisam ser tratados de forma segura;
-- apenas bloquear o veículo não resolve a necessidade de o usuário retornar com segurança.
+- apenas bloquear o veÃ­culo nÃ£o resolve a necessidade de o usuÃ¡rio retornar com seguranÃ§a.
 
-Por isso, o AlcoLock estuda uma arquitetura baseada em **múltiplas etapas de validação e recuperação segura da jornada**.
+Por isso, o AlcoLock estuda uma arquitetura baseada em **mÃºltiplas etapas de validaÃ§Ã£o e recuperaÃ§Ã£o segura da jornada**.
 
 ---
 
-## 💡 Conceito da solução
+## ðŸ’¡ Conceito da soluÃ§Ã£o
 
-Antes de permitir o início do deslocamento, o sistema deverá verificar as condições do motorista.
+Antes de permitir o inÃ­cio do deslocamento, o sistema deverÃ¡ verificar as condiÃ§Ãµes do motorista.
 
 ### Fluxo conceitual
 
 ```text
-Motorista assume a posição de condução
-               │
-               ▼
-       Validação do condutor
-               │
-               ▼
+Motorista assume a posiÃ§Ã£o de conduÃ§Ã£o
+               â”‚
+               â–¼
+       ValidaÃ§Ã£o do condutor
+               â”‚
+               â–¼
         Leitura dos sensores
-               │
-               ▼
-          Análise do teste
-               │
-        ┌──────┴──────┐
-        │             │
-     Aprovado     Não aprovado
-        │             │
-        ▼             ▼
-   Veículo pode    Bloqueio
- iniciar jornada       │
-                       ▼
-               Explicação clara
-                       │
-                       ▼
+               â”‚
+               â–¼
+          AnÃ¡lise do teste
+               â”‚
+        â”Œâ”€â”€â”€â”€â”€â”€â”´â”€â”€â”€â”€â”€â”€â”
+        â”‚             â”‚
+     Aprovado     NÃ£o aprovado
+        â”‚             â”‚
+        â–¼             â–¼
+   VeÃ­culo pode    Bloqueio
+ iniciar jornada       â”‚
+                       â–¼
+               ExplicaÃ§Ã£o clara
+                       â”‚
+                       â–¼
              Alternativas seguras
 ```
 
-> O projeto prioriza **impedir o início de uma condução considerada insegura**. Não faz parte do conceito desligar abruptamente um motor com o veículo em movimento.
+> O projeto prioriza **impedir o inÃ­cio de uma conduÃ§Ã£o considerada insegura**. NÃ£o faz parte do conceito desligar abruptamente um motor com o veÃ­culo em movimento.
 
 ---
 
-## 🧪 Estratégias de detecção estudadas
+## ðŸ§ª EstratÃ©gias de detecÃ§Ã£o estudadas
 
-### 1. Detecção pelo ar
+### 1. DetecÃ§Ã£o pelo ar
 
-Sensores de álcool no ar podem ser utilizados em protótipos acadêmicos para estudar presença e concentração de vapores.
+Sensores de Ã¡lcool no ar podem ser utilizados em protÃ³tipos acadÃªmicos para estudar presenÃ§a e concentraÃ§Ã£o de vapores.
 
-Entretanto, uma leitura de cabine isolada pode não ser suficiente para determinar com confiança qual ocupante originou a amostra.
+Entretanto, uma leitura de cabine isolada pode nÃ£o ser suficiente para determinar com confianÃ§a qual ocupante originou a amostra.
 
-Por isso, esse tipo de sensor deve ser tratado como **uma fonte de informação**, e não necessariamente como a única responsável pela decisão.
+Por isso, esse tipo de sensor deve ser tratado como **uma fonte de informaÃ§Ã£o**, e nÃ£o necessariamente como a Ãºnica responsÃ¡vel pela decisÃ£o.
 
-### 2. Detecção por toque
+### 2. DetecÃ§Ã£o por toque
 
-Outra linha estudada pelo projeto é a possibilidade de utilizar sensores de contato em componentes usados diretamente pelo motorista, como volante, botão de partida ou outro ponto de interação.
+Outra linha estudada pelo projeto Ã© a possibilidade de utilizar sensores de contato em componentes usados diretamente pelo motorista, como volante, botÃ£o de partida ou outro ponto de interaÃ§Ã£o.
 
-Existem pesquisas automotivas sobre **espectroscopia de tecido**, utilizando luz infravermelha para estimar álcool presente abaixo da superfície da pele.
+Existem pesquisas automotivas sobre **espectroscopia de tecido**, utilizando luz infravermelha para estimar Ã¡lcool presente abaixo da superfÃ­cie da pele.
 
-No AlcoLock, essa tecnologia é tratada como **referência de pesquisa e possibilidade de evolução futura**, e não como funcionalidade atualmente implementada ou validada.
+No AlcoLock, essa tecnologia Ã© tratada como **referÃªncia de pesquisa e possibilidade de evoluÃ§Ã£o futura**, e nÃ£o como funcionalidade atualmente implementada ou validada.
 
-### 3. Sensor passivo integrado à cabeceira do banco
+### 3. Sensor passivo integrado Ã  cabeceira do banco
 
-Uma nova linha de pesquisa do AlcoLock considera a utilização da **cabeceira do banco do motorista como ponto de coleta passiva do ar expirado**.
+Uma nova linha de pesquisa do AlcoLock considera a utilizaÃ§Ã£o da **cabeceira do banco do motorista como ponto de coleta passiva do ar expirado**.
 
-A proposta não é medir álcool diretamente pela pele do pescoço. O conceito é posicionar entradas de ar ou sensores na região da cabeceira, próxima à cabeça do condutor, para analisar o ar expirado naturalmente durante a respiração.
+A proposta nÃ£o Ã© medir Ã¡lcool diretamente pela pele do pescoÃ§o. O conceito Ã© posicionar entradas de ar ou sensores na regiÃ£o da cabeceira, prÃ³xima Ã  cabeÃ§a do condutor, para analisar o ar expirado naturalmente durante a respiraÃ§Ã£o.
 
-Em um estudo conceitual, esse módulo poderia combinar:
+Em um estudo conceitual, esse mÃ³dulo poderia combinar:
 
-- detecção de CO₂, como indicador de presença de respiração humana;
-- detecção de etanol no ar;
+- detecÃ§Ã£o de COâ‚‚, como indicador de presenÃ§a de respiraÃ§Ã£o humana;
+- detecÃ§Ã£o de etanol no ar;
 - temperatura e umidade;
 - qualidade e estabilidade da amostra;
-- ocupação do banco do motorista;
-- posição aproximada do condutor.
+- ocupaÃ§Ã£o do banco do motorista;
+- posiÃ§Ã£o aproximada do condutor.
 
 Exemplo:
 
 ```text
           Motorista
         nariz / boca
-             ↓
+             â†“
       ar expirado normal
-             ↓
-┌─────────────────────────┐
-│ Cabeceira do motorista  │
-│                         │
-│ entrada de ar           │
-│ CO₂                     │
-│ etanol                  │
-│ temperatura/umidade     │
-└────────────┬────────────┘
-             ↓
-      análise do sinal
+             â†“
+â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+â”‚ Cabeceira do motorista  â”‚
+â”‚                         â”‚
+â”‚ entrada de ar           â”‚
+â”‚ COâ‚‚                     â”‚
+â”‚ etanol                  â”‚
+â”‚ temperatura/umidade     â”‚
+â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
+             â†“
+      anÃ¡lise do sinal
 ```
 
-A hipótese é que a proximidade com o motorista possa ajudar a reduzir a influência de passageiros ou de álcool presente em outras regiões da cabine.
+A hipÃ³tese Ã© que a proximidade com o motorista possa ajudar a reduzir a influÃªncia de passageiros ou de Ã¡lcool presente em outras regiÃµes da cabine.
 
-Entretanto, essa possibilidade precisa ser validada experimentalmente. Fluxo de ar, ventilação, posição da cabeça, distância, janelas abertas, ar-condicionado e movimentação dos ocupantes podem alterar significativamente uma leitura.
+Entretanto, essa possibilidade precisa ser validada experimentalmente. Fluxo de ar, ventilaÃ§Ã£o, posiÃ§Ã£o da cabeÃ§a, distÃ¢ncia, janelas abertas, ar-condicionado e movimentaÃ§Ã£o dos ocupantes podem alterar significativamente uma leitura.
 
-Por isso, a cabeceira deve ser tratada como **uma possível fonte adicional de dados**, e não como prova isolada de consumo de álcool.
+Por isso, a cabeceira deve ser tratada como **uma possÃ­vel fonte adicional de dados**, e nÃ£o como prova isolada de consumo de Ã¡lcool.
 
-### 4. Fusão de sensores
+### 4. FusÃ£o de sensores
 
-Uma evolução possível é combinar diferentes sinais para aumentar a confiabilidade da decisão.
+Uma evoluÃ§Ã£o possÃ­vel Ã© combinar diferentes sinais para aumentar a confiabilidade da decisÃ£o.
 
 Exemplo conceitual:
 
 ```text
-ocupação do banco
+ocupaÃ§Ã£o do banco
         +
 sensor passivo na cabeceira
-(CO₂ + etanol + qualidade)
+(COâ‚‚ + etanol + qualidade)
         +
 sensor de contato no volante
         +
 sensor ambiental da cabine
         +
-consistência temporal
-        ↓
-motor de decisão
+consistÃªncia temporal
+        â†“
+motor de decisÃ£o
 ```
 
-Exemplos de interpretação:
+Exemplos de interpretaÃ§Ã£o:
 
 ```text
-Cabeceira:      CO₂ + etanol detectados
-Volante:        leitura compatível
-Cabine geral:   álcool baixo
+Cabeceira:      COâ‚‚ + etanol detectados
+Volante:        leitura compatÃ­vel
+Cabine geral:   Ã¡lcool baixo
 
-→ sinais convergentes associados ao motorista
+â†’ sinais convergentes associados ao motorista
 ```
 
 ```text
 Cabeceira:      leitura baixa/inconclusiva
 Volante:        leitura baixa
-Cabine geral:   álcool elevado
+Cabine geral:   Ã¡lcool elevado
 
-→ possível interferência ambiental ou de outro ocupante
-→ não concluir automaticamente que o motorista ingeriu álcool
+â†’ possÃ­vel interferÃªncia ambiental ou de outro ocupante
+â†’ nÃ£o concluir automaticamente que o motorista ingeriu Ã¡lcool
 ```
 
-O objetivo da fusão não é produzir uma acusação automática, mas melhorar a qualidade da decisão e permitir estados como `INCONCLUSIVO` quando os sinais forem conflitantes.
+O objetivo da fusÃ£o nÃ£o Ã© produzir uma acusaÃ§Ã£o automÃ¡tica, mas melhorar a qualidade da decisÃ£o e permitir estados como `INCONCLUSIVO` quando os sinais forem conflitantes.
 
 ---
 
-## 🔐 Bloqueio preventivo
+## ðŸ” Bloqueio preventivo
 
-Caso o motorista não seja aprovado:
+Caso o motorista nÃ£o seja aprovado:
 
-- o veículo permanece impossibilitado de iniciar a condução;
-- o sistema informa claramente que a validação não foi aprovada;
-- o usuário recebe opções de ajuda;
-- outro motorista poderá ser chamado;
-- o novo motorista deverá realizar sua própria validação;
-- somente uma validação aprovada poderá prosseguir para a liberação.
+- o veÃ­culo permanece impossibilitado de iniciar a conduÃ§Ã£o;
+- o sistema informa claramente que a validaÃ§Ã£o nÃ£o foi aprovada;
+- o usuÃ¡rio recebe opÃ§Ãµes de ajuda;
+- outro motorista poderÃ¡ ser chamado;
+- o novo motorista deverÃ¡ realizar sua prÃ³pria validaÃ§Ã£o;
+- somente uma validaÃ§Ã£o aprovada poderÃ¡ prosseguir para a liberaÃ§Ã£o.
 
 ### Resultado inconclusivo
 
-Uma leitura inconclusiva **não deve ser apresentada como confirmação de embriaguez**.
+Uma leitura inconclusiva **nÃ£o deve ser apresentada como confirmaÃ§Ã£o de embriaguez**.
 
-O sistema deverá diferenciar pelo menos:
+O sistema deverÃ¡ diferenciar pelo menos:
 
 - `APROVADO`
-- `NÃO APROVADO`
+- `NÃƒO APROVADO`
 - `TESTE INCONCLUSIVO`
-- `SENSOR INDISPONÍVEL`
+- `SENSOR INDISPONÃVEL`
 
-Isso evita transformar uma falha técnica em uma afirmação incorreta sobre o usuário.
+Isso evita transformar uma falha tÃ©cnica em uma afirmaÃ§Ã£o incorreta sobre o usuÃ¡rio.
 
 ---
 
-## 📍 Recuperação segura da jornada
+## ðŸ“ RecuperaÃ§Ã£o segura da jornada
 
-Bloquear o veículo resolve apenas parte do problema.
+Bloquear o veÃ­culo resolve apenas parte do problema.
 
-Depois de impedir a condução, o usuário ainda precisa encontrar uma alternativa segura.
+Depois de impedir a conduÃ§Ã£o, o usuÃ¡rio ainda precisa encontrar uma alternativa segura.
 
-Por isso, o AlcoLock prevê uma **rede de contatos prioritários** previamente cadastrados.
+Por isso, o AlcoLock prevÃª uma **rede de contatos prioritÃ¡rios** previamente cadastrados.
 
-Quando ocorrer um bloqueio, o sistema poderá oferecer:
+Quando ocorrer um bloqueio, o sistema poderÃ¡ oferecer:
 
-- 📞 ligação para contato de confiança;
-- 💬 envio de SMS ou mensagem compatível com a plataforma;
-- 📍 compartilhamento da localização do veículo mediante configuração e consentimento;
-- 🚗 solicitação para que outro motorista vá até o local;
-- 🔄 novo teste quando o motorista substituto chegar.
+- ðŸ“ž ligaÃ§Ã£o para contato de confianÃ§a;
+- ðŸ’¬ envio de SMS ou mensagem compatÃ­vel com a plataforma;
+- ðŸ“ compartilhamento da localizaÃ§Ã£o do veÃ­culo mediante configuraÃ§Ã£o e consentimento;
+- ðŸš— solicitaÃ§Ã£o para que outro motorista vÃ¡ atÃ© o local;
+- ðŸ”„ novo teste quando o motorista substituto chegar.
 
 ### Exemplo de mensagem
 
-> Não estou em condições de prosseguir como motorista neste momento. Preciso de ajuda para retornar com segurança. Minha localização poderá ser compartilhada conforme as permissões configuradas no aplicativo.
+> NÃ£o estou em condiÃ§Ãµes de prosseguir como motorista neste momento. Preciso de ajuda para retornar com seguranÃ§a. Minha localizaÃ§Ã£o poderÃ¡ ser compartilhada conforme as permissÃµes configuradas no aplicativo.
 
-A redação final das mensagens deverá ser validada em testes de UX/CX para ser clara, respeitosa e não julgadora.
+A redaÃ§Ã£o final das mensagens deverÃ¡ ser validada em testes de UX/CX para ser clara, respeitosa e nÃ£o julgadora.
 
 ---
 
-# 🧭 Jornada completa
+# ðŸ§­ Jornada completa
 
 ```text
-Tentativa de iniciar a condução
-              │
-              ▼
-      Identificação/validação
-              │
-              ▼
+Tentativa de iniciar a conduÃ§Ã£o
+              â”‚
+              â–¼
+      IdentificaÃ§Ã£o/validaÃ§Ã£o
+              â”‚
+              â–¼
        Leitura dos sensores
-              │
-         ┌────┴────┐
-         │         │
-     Aprovado   Não aprovado
-         │         │
-         ▼         ▼
-     Liberação   Bloqueio
-                   │
-                   ▼
-            Explicação ao usuário
-                   │
-                   ▼
-             Opções de ajuda
-                   │
-       ┌───────────┼───────────┐
-       ▼           ▼           ▼
-    Ligação      Mensagem   Localização
-       │           │           │
-       └───────────┴───────────┘
-                   │
-                   ▼
+              â”‚
+         â”Œâ”€â”€â”€â”€â”´â”€â”€â”€â”€â”
+         â”‚         â”‚
+     Aprovado   NÃ£o aprovado
+         â”‚         â”‚
+         â–¼         â–¼
+     LiberaÃ§Ã£o   Bloqueio
+                   â”‚
+                   â–¼
+            ExplicaÃ§Ã£o ao usuÃ¡rio
+                   â”‚
+                   â–¼
+             OpÃ§Ãµes de ajuda
+                   â”‚
+       â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¼â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+       â–¼           â–¼           â–¼
+    LigaÃ§Ã£o      Mensagem   LocalizaÃ§Ã£o
+       â”‚           â”‚           â”‚
+       â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”´â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
+                   â”‚
+                   â–¼
         Motorista substituto chega
-                   │
-                   ▼
+                   â”‚
+                   â–¼
               Novo teste
-                   │
-             ┌─────┴─────┐
-             ▼           ▼
-         Aprovado    Não aprovado
-             │
-             ▼
-          Liberação
+                   â”‚
+             â”Œâ”€â”€â”€â”€â”€â”´â”€â”€â”€â”€â”€â”
+             â–¼           â–¼
+         Aprovado    NÃ£o aprovado
+             â”‚
+             â–¼
+          LiberaÃ§Ã£o
 ```
 
 ---
 
-# 🤝 Customer Experience (CX)
+# ðŸ¤ Customer Experience (CX)
 
-CX tem papel relevante no AlcoLock porque um sistema de segurança não precisa apenas tomar uma decisão técnica: ele precisa fazer com que o usuário **entenda o que ocorreu, saiba o que fazer e consiga concluir a situação com segurança**.
+CX tem papel relevante no AlcoLock porque um sistema de seguranÃ§a nÃ£o precisa apenas tomar uma decisÃ£o tÃ©cnica: ele precisa fazer com que o usuÃ¡rio **entenda o que ocorreu, saiba o que fazer e consiga concluir a situaÃ§Ã£o com seguranÃ§a**.
 
-## Atuação de CX no projeto
+## AtuaÃ§Ã£o de CX no projeto
 
 - mapear a jornada antes, durante e depois de um bloqueio;
 - identificar pontos de atrito;
-- desenhar mensagens compreensíveis;
-- evitar linguagem acusatória ou constrangedora;
-- estruturar o fluxo de recuperação;
-- reduzir confusão em resultados inconclusivos;
+- desenhar mensagens compreensÃ­veis;
+- evitar linguagem acusatÃ³ria ou constrangedora;
+- estruturar o fluxo de recuperaÃ§Ã£o;
+- reduzir confusÃ£o em resultados inconclusivos;
 - projetar acessibilidade;
 - realizar testes de usabilidade;
-- analisar confiança e compreensão do sistema;
+- analisar confianÃ§a e compreensÃ£o do sistema;
 - estudar tratamento de falsos positivos;
 - transformar feedback em melhorias de produto.
 
-A pergunta de CX não é apenas:
+A pergunta de CX nÃ£o Ã© apenas:
 
-> **“O sensor funcionou?”**
+> **â€œO sensor funcionou?â€**
 
-Também é:
+TambÃ©m Ã©:
 
-> **“O usuário compreendeu a decisão, encontrou ajuda e conseguiu encerrar a jornada de forma segura?”**
+> **â€œO usuÃ¡rio compreendeu a decisÃ£o, encontrou ajuda e conseguiu encerrar a jornada de forma segura?â€**
 
 ---
 
-# 🤝 Customer Success (CS)
+# ðŸ¤ Customer Success (CS)
 
-No contexto do AlcoLock, Customer Success pode acompanhar se o usuário consegue configurar e utilizar corretamente os recursos que tornam o sistema útil.
+No contexto do AlcoLock, Customer Success pode acompanhar se o usuÃ¡rio consegue configurar e utilizar corretamente os recursos que tornam o sistema Ãºtil.
 
-Possíveis responsabilidades:
+PossÃ­veis responsabilidades:
 
 - onboarding;
-- configuração inicial;
-- cadastro de contatos prioritários;
-- orientação sobre permissões de localização;
-- educação sobre funcionamento e limitações;
+- configuraÃ§Ã£o inicial;
+- cadastro de contatos prioritÃ¡rios;
+- orientaÃ§Ã£o sobre permissÃµes de localizaÃ§Ã£o;
+- educaÃ§Ã£o sobre funcionamento e limitaÃ§Ãµes;
 - apoio em falhas e leituras inconclusivas;
-- acompanhamento de dúvidas recorrentes;
+- acompanhamento de dÃºvidas recorrentes;
 - coleta estruturada de feedback;
-- análise da adoção dos recursos de segurança;
-- documentação e base de conhecimento.
+- anÃ¡lise da adoÃ§Ã£o dos recursos de seguranÃ§a;
+- documentaÃ§Ã£o e base de conhecimento.
 
-Em um cenário futuro envolvendo frotas, locadoras, empresas ou instituições, CS também poderia acompanhar implantação, adesão, suporte, indicadores e melhoria contínua.
+Em um cenÃ¡rio futuro envolvendo frotas, locadoras, empresas ou instituiÃ§Ãµes, CS tambÃ©m poderia acompanhar implantaÃ§Ã£o, adesÃ£o, suporte, indicadores e melhoria contÃ­nua.
 
 ---
 
-# 📊 Indicadores de CX/CS
+# ðŸ“Š Indicadores de CX/CS
 
-Em protótipos e testes simulados, podem ser avaliados:
+Em protÃ³tipos e testes simulados, podem ser avaliados:
 
-- taxa de conclusão do onboarding;
-- percentual de usuários que configuram contatos de confiança;
-- taxa de sucesso na execução das tarefas;
+- taxa de conclusÃ£o do onboarding;
+- percentual de usuÃ¡rios que configuram contatos de confianÃ§a;
+- taxa de sucesso na execuÃ§Ã£o das tarefas;
 - tempo para compreender um bloqueio;
-- tempo para encontrar a opção de ajuda;
+- tempo para encontrar a opÃ§Ã£o de ajuda;
 - percentual de testes inconclusivos;
-- ocorrência de falsos positivos em ambiente controlado;
-- quantidade média de tentativas necessárias;
+- ocorrÃªncia de falsos positivos em ambiente controlado;
+- quantidade mÃ©dia de tentativas necessÃ¡rias;
 - taxa de sucesso no fluxo de motorista substituto;
 - principais motivos de abandono;
-- principais solicitações de suporte;
+- principais solicitaÃ§Ãµes de suporte;
 - CES (Customer Effort Score) em testes de usabilidade;
-- CSAT após simulações não críticas.
+- CSAT apÃ³s simulaÃ§Ãµes nÃ£o crÃ­ticas.
 
-> Métricas de experiência devem ser utilizadas para melhorar **segurança, clareza e confiabilidade**, e não para incentivar o usuário a contornar um bloqueio.
+> MÃ©tricas de experiÃªncia devem ser utilizadas para melhorar **seguranÃ§a, clareza e confiabilidade**, e nÃ£o para incentivar o usuÃ¡rio a contornar um bloqueio.
 
 ---
 
-# 🔒 Privacidade e LGPD
+# ðŸ”’ Privacidade e LGPD
 
-O projeto poderá envolver informações como:
+O projeto poderÃ¡ envolver informaÃ§Ãµes como:
 
-- identificação do usuário;
-- contatos de confiança;
-- localização;
-- eventos do veículo;
+- identificaÃ§Ã£o do usuÃ¡rio;
+- contatos de confianÃ§a;
+- localizaÃ§Ã£o;
+- eventos do veÃ­culo;
 - resultados dos sensores;
-- registros de tentativas e validações.
+- registros de tentativas e validaÃ§Ãµes.
 
-Por isso, privacidade deve fazer parte do projeto desde a concepção.
+Por isso, privacidade deve fazer parte do projeto desde a concepÃ§Ã£o.
 
-Princípios propostos:
+PrincÃ­pios propostos:
 
-- minimização de dados;
+- minimizaÃ§Ã£o de dados;
 - finalidade definida;
-- transparência;
-- controle de permissões;
-- retenção limitada;
-- proteção dos dados armazenados;
-- autenticação;
-- registros de auditoria quando necessários;
-- compartilhamento de localização somente dentro de fluxos previstos;
-- revisão da base legal adequada antes de qualquer implementação real.
+- transparÃªncia;
+- controle de permissÃµes;
+- retenÃ§Ã£o limitada;
+- proteÃ§Ã£o dos dados armazenados;
+- autenticaÃ§Ã£o;
+- registros de auditoria quando necessÃ¡rios;
+- compartilhamento de localizaÃ§Ã£o somente dentro de fluxos previstos;
+- revisÃ£o da base legal adequada antes de qualquer implementaÃ§Ã£o real.
 
 Veja: [`docs/privacidade-seguranca.md`](docs/privacidade-seguranca.md).
 
 ---
 
-# ⚠️ Segurança funcional
+# âš ï¸ SeguranÃ§a funcional
 
-O AlcoLock é atualmente um projeto de estudo.
+O AlcoLock Ã© atualmente um projeto de estudo.
 
-Qualquer integração futura com um veículo real exigiria conhecimentos e validações que vão além de software de aplicação, incluindo:
+Qualquer integraÃ§Ã£o futura com um veÃ­culo real exigiria conhecimentos e validaÃ§Ãµes que vÃ£o alÃ©m de software de aplicaÃ§Ã£o, incluindo:
 
 - engenharia automotiva;
-- segurança funcional;
+- seguranÃ§a funcional;
 - confiabilidade de hardware;
-- redundância;
+- redundÃ¢ncia;
 - testes ambientais;
-- calibração;
-- requisitos regulatórios;
+- calibraÃ§Ã£o;
+- requisitos regulatÃ³rios;
 - tratamento de falhas;
-- análise de riscos;
-- homologação.
+- anÃ¡lise de riscos;
+- homologaÃ§Ã£o.
 
-Não deve ser presumido que um protótipo acadêmico esteja apto a controlar um veículo real.
+NÃ£o deve ser presumido que um protÃ³tipo acadÃªmico esteja apto a controlar um veÃ­culo real.
 
 ---
 
-# 🧱 Arquitetura conceitual
+# ðŸ§± Arquitetura conceitual
 
 ```text
-┌───────────────────────────┐
-│       Motorista           │
-└─────────────┬─────────────┘
-              │
-              ▼
-┌───────────────────────────┐
-│ Camada de identificação   │
-└─────────────┬─────────────┘
-              │
-              ▼
-┌───────────────────────────┐
-│ Camada de sensores        │
-│ ar / toque / contexto     │
-└─────────────┬─────────────┘
-              │
-              ▼
-┌───────────────────────────┐
-│ Motor de decisão          │
-└─────────────┬─────────────┘
-              │
-       ┌──────┴──────┐
-       ▼             ▼
-   Aprovado      Não aprovado
-       │             │
-       ▼             ▼
-   Liberação      Bloqueio
-                     │
-                     ▼
-┌───────────────────────────┐
-│ Camada de assistência     │
-│ contatos / localização    │
-└─────────────┬─────────────┘
-              │
-              ▼
+â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+â”‚       Motorista           â”‚
+â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
+              â”‚
+              â–¼
+â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+â”‚ Camada de identificaÃ§Ã£o   â”‚
+â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
+              â”‚
+              â–¼
+â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+â”‚ Camada de sensores        â”‚
+â”‚ ar / toque / contexto     â”‚
+â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
+              â”‚
+              â–¼
+â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+â”‚ Motor de decisÃ£o          â”‚
+â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
+              â”‚
+       â”Œâ”€â”€â”€â”€â”€â”€â”´â”€â”€â”€â”€â”€â”€â”
+       â–¼             â–¼
+   Aprovado      NÃ£o aprovado
+       â”‚             â”‚
+       â–¼             â–¼
+   LiberaÃ§Ã£o      Bloqueio
+                     â”‚
+                     â–¼
+â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+â”‚ Camada de assistÃªncia     â”‚
+â”‚ contatos / localizaÃ§Ã£o    â”‚
+â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
+              â”‚
+              â–¼
       Novo motorista/teste
 ```
 
@@ -474,139 +474,140 @@ Detalhes em [`docs/arquitetura-conceitual.md`](docs/arquitetura-conceitual.md).
 
 ---
 
-# 🧪 Estratégia de validação
+# ðŸ§ª EstratÃ©gia de validaÃ§Ã£o
 
-O desenvolvimento acadêmico pode avançar em etapas:
+O desenvolvimento acadÃªmico pode avanÃ§ar em etapas:
 
 1. validar problema e jornada;
 2. criar fluxos e wireframes;
-3. criar protótipo navegável;
+3. criar protÃ³tipo navegÃ¡vel;
 4. realizar testes de usabilidade;
 5. simular eventos de sensores;
-6. registrar estados e decisões;
-7. criar protótipo físico isolado do veículo;
+6. registrar estados e decisÃµes;
+7. criar protÃ³tipo fÃ­sico isolado do veÃ­culo;
 8. medir falhas e leituras inconclusivas;
 9. revisar privacidade;
-10. documentar limitações e aprendizados.
+10. documentar limitaÃ§Ãµes e aprendizados.
 
-Nenhuma dessas etapas pressupõe instalação em veículo real.
+Nenhuma dessas etapas pressupÃµe instalaÃ§Ã£o em veÃ­culo real.
 
 ---
 
-# 🔮 Roadmap
+# ðŸ”® Roadmap
 
-## Fase 1 — Definição
+## Fase 1 â€” DefiniÃ§Ã£o
 - [x] problema e objetivo do projeto;
 - [x] conceito de bloqueio preventivo;
 - [x] motorista substituto;
-- [x] contatos prioritários;
+- [x] contatos prioritÃ¡rios;
 - [x] papel de CX/CS;
-- [ ] personas e cenários;
-- [ ] requisitos funcionais e não funcionais.
+- [ ] personas e cenÃ¡rios;
+- [ ] requisitos funcionais e nÃ£o funcionais.
 
-## Fase 2 — UX/CX
+## Fase 2 â€” UX/CX
 - [ ] fluxo completo;
 - [ ] wireframes;
-- [ ] protótipo de alta fidelidade;
+- [ ] protÃ³tipo de alta fidelidade;
 - [ ] acessibilidade;
 - [ ] testes de usabilidade;
-- [ ] revisão das mensagens.
+- [ ] revisÃ£o das mensagens.
 
-## Fase 3 — Software
-- [ ] cadastro de usuário;
-- [ ] contatos de confiança;
-- [ ] permissões de localização;
-- [ ] estados de validação;
-- [ ] simulação de bloqueio;
-- [ ] histórico de eventos;
+## Fase 3 â€” Software
+- [ ] cadastro de usuÃ¡rio;
+- [ ] contatos de confianÃ§a;
+- [ ] permissÃµes de localizaÃ§Ã£o;
+- [ ] estados de validaÃ§Ã£o;
+- [ ] simulaÃ§Ã£o de bloqueio;
+- [ ] histÃ³rico de eventos;
 - [ ] fluxo do motorista substituto.
 
-## Fase 4 — Protótipo IoT
-- [ ] definição do hardware experimental;
+## Fase 4 â€” ProtÃ³tipo IoT
+- [ ] definiÃ§Ã£o do hardware experimental;
 - [ ] leitura de sensor em bancada;
-- [ ] calibração experimental;
-- [ ] integração com aplicação;
+- [ ] calibraÃ§Ã£o experimental;
+- [ ] integraÃ§Ã£o com aplicaÃ§Ã£o;
 - [ ] registro de telemetria;
 - [ ] testes controlados.
 
-## Fase 5 — Validação
+## Fase 5 â€” ValidaÃ§Ã£o
 - [ ] testes de falsos positivos;
 - [ ] testes de falsos negativos;
 - [ ] testes de leituras inconclusivas;
 - [ ] testes de falha de sensor;
-- [ ] revisão de privacidade/LGPD;
-- [ ] documentação dos resultados.
+- [ ] revisÃ£o de privacidade/LGPD;
+- [ ] documentaÃ§Ã£o dos resultados.
 
 Veja o roadmap detalhado em [`docs/roadmap.md`](docs/roadmap.md).
 
 ---
 
-# 📁 Estrutura documental
+# ðŸ“ Estrutura documental
 
 ```text
 AlcoLock/
-├── README.md
-└── docs/
-    ├── arquitetura-conceitual.md
-    ├── cx-cs.md
-    ├── privacidade-seguranca.md
-    ├── roadmap.md
-    ├── testes-validacao.md
-    ├── referencias.md
-    └── origem-e-pesquisa.md
+â”œâ”€â”€ README.md
+â””â”€â”€ docs/
+    â”œâ”€â”€ arquitetura-conceitual.md
+    â”œâ”€â”€ cx-cs.md
+    â”œâ”€â”€ privacidade-seguranca.md
+    â”œâ”€â”€ roadmap.md
+    â”œâ”€â”€ testes-validacao.md
+    â”œâ”€â”€ referencias.md
+    â””â”€â”€ origem-e-pesquisa.md
 ```
 
-A estrutura de código existente pode permanecer separada desta documentação.
+A estrutura de cÃ³digo existente pode permanecer separada desta documentaÃ§Ã£o.
 
 ---
 
-# 🎓 Objetivos de aprendizagem
+# ðŸŽ“ Objetivos de aprendizagem
 
-O projeto permite estudar a integração entre:
+O projeto permite estudar a integraÃ§Ã£o entre:
 
 - desenvolvimento de software;
 - IoT e sensores;
-- análise de requisitos;
+- anÃ¡lise de requisitos;
 - UX/UI;
 - Customer Experience;
 - Customer Success;
 - dados;
-- segurança;
+- seguranÃ§a;
 - privacidade;
-- documentação técnica;
-- testes e validação.
+- documentaÃ§Ã£o tÃ©cnica;
+- testes e validaÃ§Ã£o.
 
-O foco não é apresentar o AlcoLock como produto pronto, mas **documentar a evolução de uma ideia multidisciplinar, os problemas encontrados, as decisões tomadas e os aprendizados obtidos**.
+O foco nÃ£o Ã© apresentar o AlcoLock como produto pronto, mas **documentar a evoluÃ§Ã£o de uma ideia multidisciplinar, os problemas encontrados, as decisÃµes tomadas e os aprendizados obtidos**.
 
 ---
 
-# 📚 Documentação
+# ðŸ“š DocumentaÃ§Ã£o
 
 - [Arquitetura conceitual](docs/arquitetura-conceitual.md)
 - [CX e CS](docs/cx-cs.md)
-- [Privacidade e segurança](docs/privacidade-seguranca.md)
+- [Privacidade e seguranÃ§a](docs/privacidade-seguranca.md)
 - [Roadmap](docs/roadmap.md)
-- [Testes e validação](docs/testes-validacao.md)
-- [Referências](docs/referencias.md)
+- [Testes e validaÃ§Ã£o](docs/testes-validacao.md)
+- [ReferÃªncias](docs/referencias.md)
 - [Origem da ideia e pesquisa](docs/origem-e-pesquisa.md)
 
 ---
 
-# 📌 Status
+# ðŸ“Œ Status
 
-**Em desenvolvimento — projeto acadêmico/de aprendizagem.**
+**Em desenvolvimento â€” projeto acadÃªmico/de aprendizagem.**
 
-As funcionalidades descritas representam uma combinação de:
+As funcionalidades descritas representam uma combinaÃ§Ã£o de:
 
 - conceitos definidos;
 - recursos planejados;
-- hipóteses de pesquisa;
-- possíveis evoluções.
+- hipÃ³teses de pesquisa;
+- possÃ­veis evoluÃ§Ãµes.
 
-Cada item deverá ser marcado como implementado somente após existir evidência no projeto.
+Cada item deverÃ¡ ser marcado como implementado somente apÃ³s existir evidÃªncia no projeto.
 
 ---
 
-## 👩‍💻 Autoria
+## ðŸ‘©â€ðŸ’» Autoria
 
-Projeto desenvolvido por **Priscilla Cahino** como parte de estudos e desenvolvimento de competências em tecnologia, experiência do usuário, dados, processos e segurança.
+Projeto desenvolvido por **Priscilla Cahino** como parte de estudos e desenvolvimento de competÃªncias em tecnologia, experiÃªncia do usuÃ¡rio, dados, processos e seguranÃ§a.
+
