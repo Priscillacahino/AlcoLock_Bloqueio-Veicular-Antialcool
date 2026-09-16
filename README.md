@@ -502,8 +502,13 @@ O AlcoLock já possui um **protótipo inicial em desenvolvimento**, criado para 
 
 Nesta fase, o protótipo representa uma versão preliminar e poderá sofrer alterações conforme avancem os estudos técnicos, os testes de usabilidade, a análise de sensores e as decisões de UX/CX.
 
-![Protótipo inicial do AlcoLock](docs/imagens/alcolock_prototipo_3_telas.jpg)
-
+<p align="center">
+  <img
+    src="https://raw.githubusercontent.com/Priscillacahino/AlcoLock_Bloqueio-Veicular-Antialcool/main/docs/imagens/alcolock_prototipo_3_telas.jpg"
+    alt="Protótipo inicial do AlcoLock"
+    width="900"
+  />
+</p>
 ### O que esta versão busca demonstrar
 
 - fluxo inicial de interação com o sistema;
