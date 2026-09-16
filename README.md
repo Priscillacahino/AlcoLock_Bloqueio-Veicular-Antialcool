@@ -504,7 +504,7 @@ Nesta fase, o protótipo representa uma versão preliminar e poderá sofrer alte
 
 <p align="center">
   <img
-    src="./docs/imagens/alcolock_prototipo_3_telas.jpg"
+    src="./docs/imagens/alcolock_showcase_readme.png"
     alt="Protótipo inicial do AlcoLock"
     width="900"
   />
