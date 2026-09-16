@@ -77,3 +77,27 @@ Para cada recurso concluído, guardar:
 - versão.
 
 Isso facilita a evolução do GitHub e do portfólio.
+
+
+## 6. Cenários específicos para sensor passivo na cabeceira
+
+Em bancada ou simulação, considerar:
+
+- motorista sem interferência externa;
+- passageiro alcoolizado e motorista sem ingestão;
+- dois passageiros com possível interferência;
+- álcool presente na cabine sem origem respiratória;
+- janela aberta;
+- ar-condicionado ligado;
+- motorista inclinado para frente;
+- motorista afastado da cabeceira;
+- diferentes alturas de ocupante;
+- leitura compatível na cabeceira e incompatível no volante;
+- leitura ambiental elevada com cabeceira baixa;
+- falha do sensor de CO₂.
+
+### Regra de interpretação
+
+Nenhum desses cenários deve ser usado para afirmar consumo real sem metodologia e instrumentação adequadas.
+
+O objetivo do protótipo é estudar **qualidade da amostra, interferência e lógica de decisão**, e não substituir instrumentos certificados.

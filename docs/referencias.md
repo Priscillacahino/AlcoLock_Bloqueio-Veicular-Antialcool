@@ -2,6 +2,16 @@
 
 Estas referências apoiam a pesquisa conceitual do projeto. Elas não significam que o AlcoLock use ou reproduza as tecnologias citadas.
 
+## Relação entre a ideia e estas referências
+
+A concepção inicial do AlcoLock surgiu antes do conhecimento das pesquisas listadas nesta página.
+
+As referências foram encontradas posteriormente, durante a investigação sobre formas tecnicamente possíveis de desenvolver o projeto.
+
+Elas são utilizadas para contextualizar o estado da pesquisa, validar ou questionar hipóteses técnicas, reconhecer trabalhos anteriores e documentar o aprendizado.
+
+Para a cronologia do projeto, consulte [`origem-e-pesquisa.md`](origem-e-pesquisa.md).
+
 ## Detecção de álcool em veículos
 
 ### DADSS — Driver Alcohol Detection System for Safety

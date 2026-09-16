@@ -30,6 +30,33 @@ liberar o veículo somente após aprovação
 
 ---
 
+# 💡 Origem da ideia e pesquisa posterior
+
+O AlcoLock nasceu como uma **ideia própria de projeto de aprendizagem**, a partir da reflexão sobre como reduzir o risco de uma pessoa iniciar a condução de um veículo após consumir álcool.
+
+A concepção inicial do projeto surgiu **antes de eu ter conhecimento de pesquisas e iniciativas já existentes sobre detecção passiva de álcool em veículos**.
+
+Somente depois de começar a desenvolver e pesquisar formas tecnicamente possíveis de implementar a ideia — incluindo sensores de ar, sensores por contato, identificação do motorista e alternativas para reduzir falsos positivos — tomei conhecimento de programas e estudos que investigam problemas semelhantes.
+
+Essas referências passaram então a ser utilizadas para:
+
+- compreender melhor a viabilidade técnica de determinados conceitos;
+- identificar limitações que eu ainda não havia considerado;
+- comparar diferentes formas de detecção;
+- melhorar a documentação acadêmica do projeto;
+- evitar apresentar como inédita uma tecnologia que já possui pesquisa anterior.
+
+A existência dessas pesquisas **não foi a origem da concepção do AlcoLock**.
+
+O projeto não utiliza código, arquivos, layouts, protótipos ou documentação interna de terceiros como base para sua concepção inicial. As fontes públicas citadas na documentação são utilizadas como **referências técnicas e bibliográficas posteriores**, para contextualizar tecnologias relacionadas e apoiar o processo de aprendizagem.
+
+> Este registro tem finalidade de transparência sobre a evolução do projeto. Ele não representa, por si só, uma análise jurídica de originalidade, autoria, patenteabilidade ou propriedade intelectual.
+
+Mais detalhes em [`docs/origem-e-pesquisa.md`](docs/origem-e-pesquisa.md).
+
+
+---
+
 ## 🎯 Problema
 
 Uma solução baseada exclusivamente em álcool presente no ar da cabine pode enfrentar situações de ambiguidade.
@@ -100,27 +127,88 @@ Existem pesquisas automotivas sobre **espectroscopia de tecido**, utilizando luz
 
 No AlcoLock, essa tecnologia é tratada como **referência de pesquisa e possibilidade de evolução futura**, e não como funcionalidade atualmente implementada ou validada.
 
-### 3. Fusão de sensores
+### 3. Sensor passivo integrado à cabeceira do banco
+
+Uma nova linha de pesquisa do AlcoLock considera a utilização da **cabeceira do banco do motorista como ponto de coleta passiva do ar expirado**.
+
+A proposta não é medir álcool diretamente pela pele do pescoço. O conceito é posicionar entradas de ar ou sensores na região da cabeceira, próxima à cabeça do condutor, para analisar o ar expirado naturalmente durante a respiração.
+
+Em um estudo conceitual, esse módulo poderia combinar:
+
+- detecção de CO₂, como indicador de presença de respiração humana;
+- detecção de etanol no ar;
+- temperatura e umidade;
+- qualidade e estabilidade da amostra;
+- ocupação do banco do motorista;
+- posição aproximada do condutor.
+
+Exemplo:
+
+```text
+          Motorista
+        nariz / boca
+             ↓
+      ar expirado normal
+             ↓
+┌─────────────────────────┐
+│ Cabeceira do motorista  │
+│                         │
+│ entrada de ar           │
+│ CO₂                     │
+│ etanol                  │
+│ temperatura/umidade     │
+└────────────┬────────────┘
+             ↓
+      análise do sinal
+```
+
+A hipótese é que a proximidade com o motorista possa ajudar a reduzir a influência de passageiros ou de álcool presente em outras regiões da cabine.
+
+Entretanto, essa possibilidade precisa ser validada experimentalmente. Fluxo de ar, ventilação, posição da cabeça, distância, janelas abertas, ar-condicionado e movimentação dos ocupantes podem alterar significativamente uma leitura.
+
+Por isso, a cabeceira deve ser tratada como **uma possível fonte adicional de dados**, e não como prova isolada de consumo de álcool.
+
+### 4. Fusão de sensores
 
 Uma evolução possível é combinar diferentes sinais para aumentar a confiabilidade da decisão.
 
 Exemplo conceitual:
 
 ```text
-ocupação do banco do motorista
-          +
-identificação do condutor
-          +
-sensor de contato
-          +
-sensor ambiental
-          +
-consistência das leituras
-          ↓
-decisão de segurança
+ocupação do banco
+        +
+sensor passivo na cabeceira
+(CO₂ + etanol + qualidade)
+        +
+sensor de contato no volante
+        +
+sensor ambiental da cabine
+        +
+consistência temporal
+        ↓
+motor de decisão
 ```
 
-A lógica definitiva dependeria de validação técnica, calibração, testes controlados e requisitos de segurança automotiva.
+Exemplos de interpretação:
+
+```text
+Cabeceira:      CO₂ + etanol detectados
+Volante:        leitura compatível
+Cabine geral:   álcool baixo
+
+→ sinais convergentes associados ao motorista
+```
+
+```text
+Cabeceira:      leitura baixa/inconclusiva
+Volante:        leitura baixa
+Cabine geral:   álcool elevado
+
+→ possível interferência ambiental ou de outro ocupante
+→ não concluir automaticamente que o motorista ingeriu álcool
+```
+
+O objetivo da fusão não é produzir uma acusação automática, mas melhorar a qualidade da decisão e permitir estados como `INCONCLUSIVO` quando os sinais forem conflitantes.
 
 ---
 
@@ -464,7 +552,8 @@ AlcoLock/
     ├── privacidade-seguranca.md
     ├── roadmap.md
     ├── testes-validacao.md
-    └── referencias.md
+    ├── referencias.md
+    └── origem-e-pesquisa.md
 ```
 
 A estrutura de código existente pode permanecer separada desta documentação.
@@ -499,6 +588,7 @@ O foco não é apresentar o AlcoLock como produto pronto, mas **documentar a evo
 - [Roadmap](docs/roadmap.md)
 - [Testes e validação](docs/testes-validacao.md)
 - [Referências](docs/referencias.md)
+- [Origem da ideia e pesquisa](docs/origem-e-pesquisa.md)
 
 ---
 

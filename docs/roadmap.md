@@ -11,6 +11,7 @@ O roadmap separa o que pode ser desenvolvido com segurança como software/protó
 - [x] prever motorista substituto;
 - [x] prever contatos prioritários;
 - [x] incluir CX/CS;
+- [x] registrar origem da ideia e pesquisa posterior;
 - [ ] criar persona principal;
 - [ ] criar persona motorista substituto;
 - [ ] criar cenários de uso;
@@ -59,6 +60,9 @@ Aplicação consegue simular todos os estados da jornada.
 
 - [ ] escolher hardware de desenvolvimento;
 - [ ] definir sensor experimental;
+- [ ] estudar sensor passivo na cabeceira (CO₂ + etanol);
+- [ ] estudar influência de ventilação, postura e passageiros;
+- [ ] comparar cabeceira, volante e sensor ambiental;
 - [ ] leitura serial/Bluetooth/Wi-Fi;
 - [ ] registrar amostras;
 - [ ] tratamento de erro;

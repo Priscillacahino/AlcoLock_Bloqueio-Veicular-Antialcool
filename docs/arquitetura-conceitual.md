@@ -20,7 +20,11 @@ Responsável por receber medições.
 
 Possíveis fontes:
 - sensor experimental de álcool no ar;
-- sensor de contato;
+- sensor passivo integrado à cabeceira do motorista;
+- detecção de CO₂ associada à respiração;
+- sensor de contato no volante;
+- sensor ambiental da cabine;
+- sensor de ocupação do banco;
 - estado do hardware;
 - qualidade/confiança da leitura.
 
@@ -89,6 +93,75 @@ Evitar armazenar informações desnecessárias.
                      v
                  [Novo teste]
 ```
+
+
+## Sensor passivo na cabeceira
+
+Uma hipótese de evolução é incorporar um módulo de análise do ar na cabeceira do banco do motorista.
+
+O objetivo seria coletar o ar expirado naturalmente pelo condutor, sem exigir que ele sopre diretamente em um bocal.
+
+Possíveis sinais:
+
+- CO₂;
+- etanol;
+- temperatura;
+- umidade;
+- qualidade da amostra;
+- estabilidade temporal.
+
+A presença de CO₂ pode ajudar a indicar que a amostra está associada à respiração humana, enquanto outros sensores e o contexto do banco ajudam a estimar se a origem é realmente o motorista.
+
+```text
+         cabeça do motorista
+                 |
+                 v
+        [Cabeceira / entrada]
+          |      |      |
+         CO₂   etanol  T/U
+          \      |      /
+           \     |     /
+            [qualidade]
+                 |
+                 v
+         [Motor de decisão]
+```
+
+### Limitações a estudar
+
+- ar-condicionado;
+- janelas abertas;
+- posição da cabeça;
+- altura do motorista;
+- inclinação do banco;
+- movimentação;
+- passageiros próximos;
+- álcool derramado na cabine;
+- atraso de resposta;
+- necessidade de fluxo de ar controlado.
+
+A cabeceira não deve atuar isoladamente como prova de consumo.
+
+## Fusão multissensor
+
+A arquitetura conceitual passa a considerar a combinação de:
+
+```text
+ocupação do banco
+      +
+cabeceira (CO₂ + etanol)
+      +
+volante/contato
+      +
+ambiente da cabine
+      +
+qualidade e consistência temporal
+      ↓
+motor de decisão
+```
+
+Quando os sinais divergirem, o estado preferencial deve ser `INCONCLUSIVO`, seguido pelo fluxo de nova validação previsto no projeto.
+
 
 ## Requisitos não funcionais a estudar
 
