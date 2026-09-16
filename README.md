@@ -502,12 +502,6 @@ O AlcoLock já possui um **protótipo inicial em desenvolvimento**, criado para 
 
 Nesta fase, o protótipo representa uma versão preliminar e poderá sofrer alterações conforme avancem os estudos técnicos, os testes de usabilidade, a análise de sensores e as decisões de UX/CX.
 
-## 🔗 Acesso ao protótipo
-
-[Visualizar protótipo no Google AI Studio](https://aistudio.google.com/apps/be3163e9-9343-443a-a9d7-e486669aa0cf?showPreview=true&showAssistant=true)
-
-## 📱 Prévia do protótipo
-
 ![Protótipo inicial do AlcoLock](docs/imagens/alcolock_prototipo_3_telas.jpg)
 
 ### O que esta versão busca demonstrar
