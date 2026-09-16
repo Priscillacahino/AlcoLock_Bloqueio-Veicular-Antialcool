@@ -504,11 +504,12 @@ Nesta fase, o protótipo representa uma versão preliminar e poderá sofrer alte
 
 <p align="center">
   <img
-    src="https://raw.githubusercontent.com/Priscillacahino/AlcoLock_Bloqueio-Veicular-Antialcool/main/docs/imagens/alcolock_prototipo_3_telas.jpg"
+    src="./docs/imagens/alcolock_prototipo_3_telas.jpg"
     alt="Protótipo inicial do AlcoLock"
     width="900"
   />
 </p>
+
 ### O que esta versão busca demonstrar
 
 - fluxo inicial de interação com o sistema;
