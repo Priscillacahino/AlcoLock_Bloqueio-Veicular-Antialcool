@@ -647,17 +647,23 @@ Projeto desenvolvido por **Priscilla Cahino** como parte de estudos e desenvolvi
 
 ---
 
-## ðŸ“Š Pesquisa ampliada - acidentes e embriaguez em JoÃ£o Pessoa (2026)
+## 📊 Pesquisa ampliada - acidentes e embriaguez em João Pessoa (2026)
 
-A pesquisa documental foi revisada para nÃ£o depender apenas do termo **sinistro**. TambÃ©m foram consultados acidentes, colisÃµes, atropelamentos, batidas e capotamentos associados a teste positivo, sinais de embriaguez, recusa ao etilÃ´metro, autuaÃ§Ã£o formal ou conclusÃ£o de investigaÃ§Ã£o policial.
+A pesquisa documental foi revisada para não depender apenas do termo **sinistro**. Também foram consultados acidentes, colisões, atropelamentos, batidas e capotamentos associados a teste positivo, sinais de embriaguez, recusa ao etilômetro, autuação formal ou conclusão de investigação policial.
 
-No perÃ­odo de **01/01/2026 a 18/09/2026**, foram localizados **5 acidentes em JoÃ£o Pessoa** com evidÃªncia pÃºblica suficiente para a base principal. As fontes registram pelo menos **4 pessoas feridas e 1 morte** nesses cinco eventos. HÃ¡ ainda um caso de suspeita circunstancial mantido separadamente, sem entrar nos totais principais.
+No período de **01/01/2026 a 18/09/2026**, foram localizados **5 acidentes em João Pessoa** com evidência pública suficiente para integrar a base principal. As fontes registram, no mínimo, **4 pessoas feridas e 1 morte** nesses cinco eventos.
 
-> Os nÃºmeros representam ocorrÃªncias publicamente verificÃ¡veis encontradas no levantamento, e nÃ£o um censo oficial. Embriaguez confirmada e causalidade do acidente sÃ£o campos separados na base.
+Há ainda um caso de suspeita circunstancial mantido separadamente, sem entrar nos totais principais.
 
-- [Pesquisa ampliada](docs/pesquisa_ampliada_acidentes_embriaguez_joao_pessoa_2026.md)
-- [Base de ocorrÃªncias](data/ocorrencias_ampliadas_joao_pessoa_alcool_2026.csv)
-- [RelatÃ³rio tÃ©cnico em PDF](docs/AlcoLock_Relatorio_Tecnico_Pesquisa_Ampliada_2026.pdf)
+> Os números representam ocorrências publicamente verificáveis encontradas no levantamento e não um censo oficial. Embriaguez confirmada e causalidade do acidente são tratadas separadamente na base.
 
-![OcorrÃªncias ampliadas por mÃªs](docs/assets/grafico_ocorrencias_ampliadas_mes.png)
+### Documentação da pesquisa
 
+- [Pesquisa ampliada e metodologia](docs/pesquisa_ampliada_acidentes_embriaguez_joao_pessoa_2026.md)
+- [Base de ocorrências](data/ocorrencias_ampliadas_joao_pessoa_alcool_2026.csv)
+- [Fontes e metodologia](data/fontes_metodologia_ampliada_2026.csv)
+- [Relatório de Projeto - pesquisa, conceito e evolução](docs/AlcoLock_Relatorio_de_Projeto_2026.pdf)
+- [Requisitos e regras de negócio](docs/requisitos_regras_negocio.md)
+- [Pontos fortes, limitações e riscos](docs/analise_pontos_fortes_riscos.md)
+
+![Ocorrências ampliadas por mês](docs/assets/grafico_ocorrencias_ampliadas_mes.png)
