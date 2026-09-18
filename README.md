@@ -643,3 +643,21 @@ Cada item deverá ser marcado como implementado somente após existir evidência
 ## 👩‍💻 Autoria
 
 Projeto desenvolvido por **Priscilla Cahino** como parte de estudos e desenvolvimento de competências em tecnologia, experiência do usuário, dados, processos e segurança.
+
+
+---
+
+## ðŸ“Š Pesquisa ampliada - acidentes e embriaguez em JoÃ£o Pessoa (2026)
+
+A pesquisa documental foi revisada para nÃ£o depender apenas do termo **sinistro**. TambÃ©m foram consultados acidentes, colisÃµes, atropelamentos, batidas e capotamentos associados a teste positivo, sinais de embriaguez, recusa ao etilÃ´metro, autuaÃ§Ã£o formal ou conclusÃ£o de investigaÃ§Ã£o policial.
+
+No perÃ­odo de **01/01/2026 a 18/09/2026**, foram localizados **5 acidentes em JoÃ£o Pessoa** com evidÃªncia pÃºblica suficiente para a base principal. As fontes registram pelo menos **4 pessoas feridas e 1 morte** nesses cinco eventos. HÃ¡ ainda um caso de suspeita circunstancial mantido separadamente, sem entrar nos totais principais.
+
+> Os nÃºmeros representam ocorrÃªncias publicamente verificÃ¡veis encontradas no levantamento, e nÃ£o um censo oficial. Embriaguez confirmada e causalidade do acidente sÃ£o campos separados na base.
+
+- [Pesquisa ampliada](docs/pesquisa_ampliada_acidentes_embriaguez_joao_pessoa_2026.md)
+- [Base de ocorrÃªncias](data/ocorrencias_ampliadas_joao_pessoa_alcool_2026.csv)
+- [RelatÃ³rio tÃ©cnico em PDF](docs/AlcoLock_Relatorio_Tecnico_Pesquisa_Ampliada_2026.pdf)
+
+![OcorrÃªncias ampliadas por mÃªs](docs/assets/grafico_ocorrencias_ampliadas_mes.png)
+
