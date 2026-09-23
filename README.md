@@ -10,6 +10,26 @@ O **AlcoLock** é um conceito de sistema preventivo de segurança veicular pensa
 
 A proposta vai além de simplesmente detectar álcool e bloquear o veículo. O projeto também estuda como **sensores, software, experiência do usuário, localização e uma rede de contatos de confiança** podem trabalhar juntos para ajudar o motorista a encontrar uma alternativa segura.
 
+## ⚡ Leitura rápida
+
+| Ponto | Situação atual |
+|---|---|
+| **Problema estudado** | risco de condução após consumo de álcool |
+| **Proposta** | validação preventiva antes da condução e orientação para uma alternativa segura |
+| **UX/CX** | fluxo de bloqueio, comunicação ao usuário, contatos de confiança e motorista substituto |
+| **Software** | planejado e em evolução |
+| **Sensores/IoT** | estudo conceitual; hardware real ainda não validado |
+| **Uso em veículo real** | não implementado e não homologado |
+
+### 📍 Como interpretar o projeto
+
+- ✅ **Documentado:** conceito, arquitetura, pesquisa, fluxo preventivo e documentação de apoio.
+- 🧪 **Experimental:** hipóteses de sensores, validações e integrações futuras.
+- 📋 **Planejado:** funcionalidades de software, testes e protótipo IoT descritos no roadmap.
+- 🚫 **Não implementado:** controle de veículo real, solução homologada ou dispositivo automotivo pronto para uso.
+
+---
+
 A ideia central é:
 
 ```text
