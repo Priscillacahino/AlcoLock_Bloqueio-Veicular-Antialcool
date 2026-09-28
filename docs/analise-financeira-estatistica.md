@@ -14,8 +14,8 @@ Nesta fase, o projeto continua acadêmico. Por isso, a documentação trabalha c
 
 | Grupo | Exemplos | Situação atual |
 |---|---|---|
-| Protótipo físico | sensores, microcontrolador, alimentação, gabinete e bancada | A cotar |
-| Integração | chicotes, interfaces, módulos e instrumentação | A cotar |
+| Protótipo físico | sensores, microcontrolador, alimentação, gabinete e bancada | a cotar |
+| Integração | chicotes, interfaces, módulos e instrumentação | a cotar |
 | Desenvolvimento | software, UX, documentação e testes | Projeto acadêmico |
 | Validação | calibração, ensaios controlados e equipamentos de referência | Não medido |
 | Engenharia/homologação | segurança funcional, testes automotivos e certificações | Fora do escopo atual |

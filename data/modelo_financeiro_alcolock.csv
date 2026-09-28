@@ -1,8 +1,8 @@
 categoria,subcategoria,variavel,unidade,valor,status,observacao
-CAPEX,Hardware,Sensor principal,R$, ,A cotar,Não inventar preço antes de cotação
-CAPEX,Hardware,Microcontrolador ou módulo de controle,R$, ,A cotar,
-CAPEX,Hardware,Alimentação gabinete e conexões,R$, ,A cotar,
-CAPEX,Integração,Instrumentação e bancada,R$, ,A cotar,
+CAPEX,Hardware,Sensor principal,R$, ,a cotar,Não inventar preço antes de cotação
+CAPEX,Hardware,Microcontrolador ou módulo de controle,R$, ,a cotar,
+CAPEX,Hardware,Alimentação gabinete e conexões,R$, ,a cotar,
+CAPEX,Integração,Instrumentação e bancada,R$, ,a cotar,
 CAPEX,Desenvolvimento,Horas de software,h, ,Não medido,Projeto acadêmico nesta fase
 CAPEX,Validação,Calibração e ensaios,R$, ,Não medido,
 OPEX,Manutenção,Reposição de sensores,R$/período, ,Futuro,
