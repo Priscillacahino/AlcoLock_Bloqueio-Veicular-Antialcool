@@ -133,7 +133,7 @@ export const TelemetryLogModal: React.FC<Props> = ({
                       {log.bacReading !== undefined && (
                         <div className="text-[10px] font-mono text-slate-400 mt-0.5">
                           Teor Alcoólico: <strong className={log.bacReading > 0 ? 'text-rose-400' : 'text-emerald-400'}>
-                            {log.bacReading.toFixed(2)} mg/L
+                            {log.bacReading.toFixed(2)} (valor simulado)
                           </strong>
                         </div>
                       )}

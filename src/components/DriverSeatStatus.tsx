@@ -90,12 +90,12 @@ export const DriverSeatStatus: React.FC<Props> = ({
             {isLocked ? (
               <span className="inline-flex items-center gap-1 px-2 py-1 rounded bg-rose-500/20 border border-rose-500/50 text-rose-300 text-[10px] font-bold">
                 <ShieldAlert className="w-3 h-3 text-rose-400" />
-                ÁLCOOL: {currentDriver.lastTestBAC?.toFixed(2)} mg/L
+                LEITURA: {currentDriver.lastTestBAC?.toFixed(2)} (simulada)
               </span>
             ) : isSober ? (
               <span className="inline-flex items-center gap-1 px-2 py-1 rounded bg-emerald-500/20 border border-emerald-500/50 text-emerald-300 text-[10px] font-bold">
                 <ShieldCheck className="w-3 h-3 text-emerald-400" />
-                SÓBRIO: 0,00 mg/L
+                VALIDAÇÃO APROVADA
               </span>
             ) : (
               <span className="inline-flex items-center gap-1 px-2 py-1 rounded bg-amber-500/20 border border-amber-500/50 text-amber-300 text-[10px] font-bold">
@@ -170,7 +170,7 @@ export const DriverSeatStatus: React.FC<Props> = ({
           <span>Substituir Condutor no Assento</span>
         </button>
         <p className="text-[10px] text-center text-slate-500">
-          O novo motorista passará por teste obrigatório de sobriedade e confirmação no banco.
+          O novo motorista passará por confirmação de presença e validação simulada em etapas separadas.
         </p>
       </div>
     </div>

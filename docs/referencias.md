@@ -57,3 +57,15 @@ Evitar afirmar:
 - que o protótipo possui precisão certificada;
 - que está homologado para uso automotivo;
 - que pode substituir instrumentos oficiais.
+
+## Atualização tecnológica consultada em setembro de 2026
+
+A página oficial do DADSS sobre disponibilidade comercial informa que o desenvolvimento do sistema **touch** foi suspenso em abril de 2025 após atrasos/incerteza de financiamento. A fonte registra que a capacidade de medir álcool no tecido foi demonstrada em laboratório, mas que ainda seriam necessários avanços para atender requisitos automotivos de durabilidade, custo e produção em massa.
+
+A mesma atualização informa que o programa passou a priorizar a tecnologia passiva de respiração e divulga cronogramas estimados, sujeitos a alteração.
+
+Fontes oficiais:
+- https://dadss.org/touch-technology/
+- https://dadss.org/commercial-availability-of-dadss-technology/
+
+Por isso, o AlcoLock deve tratar qualquer leitura por toque como **referência conceitual de pesquisa**, e não como sensor implementado, homologado ou comercialmente disponível no projeto.

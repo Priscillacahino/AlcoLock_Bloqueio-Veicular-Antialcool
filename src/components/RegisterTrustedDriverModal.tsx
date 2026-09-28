@@ -60,7 +60,7 @@ export const RegisterTrustedDriverModal: React.FC<Props> = ({
       cnh,
       deviceType,
       pairedDeviceName,
-      confirmationPin: confirmationPin || '2489',
+      confirmationPin: confirmationPin || trustedDriver.confirmationPin,
     };
     onSave(updated);
     setSaveSuccessNotice(true);
@@ -102,7 +102,7 @@ export const RegisterTrustedDriverModal: React.FC<Props> = ({
         <form onSubmit={handleSubmit} className="p-5 space-y-4 max-h-[80vh] overflow-y-auto">
           <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 text-xs text-slate-300">
             <strong className="text-white block mb-1">Como funciona este recurso de segurança:</strong>
-            Se o sensor de bafômetro no banco do motorista acusar teor de álcool acima do limite seguro, o sistema entrará em contato automaticamente com este motorista alternativo e <strong>só permitirá a partida do carro após sua presença física e confirmação no veículo</strong>.
+            Se uma validação simulada não for aprovada, o protótipo poderá simular o contato com este motorista alternativo. A presença e o teste do novo condutor são etapas separadas antes da liberação da partida na demonstração.
           </div>
 
           {/* Personal info */}
@@ -281,7 +281,7 @@ export const RegisterTrustedDriverModal: React.FC<Props> = ({
               </span>
             ) : (
               <span className="text-[10px] text-slate-500">
-                Dados gravados na memória segura do veículo
+                Dados mantidos apenas durante esta sessão do protótipo
               </span>
             )}
 

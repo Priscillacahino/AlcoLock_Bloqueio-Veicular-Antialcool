@@ -23,7 +23,7 @@ export const IgnitionButton: React.FC<Props> = ({
   const handleClick = () => {
     if (ignitionState === 'LOCKED') {
       setShaking(true);
-      setClickNotice('BLOQUEADO! ÁLCOOL DETECTADO NO MOTORISTA');
+      setClickNotice('BLOQUEADO: VALIDAÇÃO NÃO APROVADA');
       setTimeout(() => setShaking(false), 500);
       setTimeout(() => setClickNotice(null), 3500);
       onPressWhenLocked();
@@ -56,7 +56,7 @@ export const IgnitionButton: React.FC<Props> = ({
   if (ignitionState === 'LOCKED') {
     ringClasses = 'border-rose-500 bg-rose-950/60 text-rose-300 shadow-rose-950/80 ring-4 ring-rose-600/40 animate-pulse';
     label = 'IGNIÇÃO BLOQUEADA';
-    subLabel = 'MOTORISTA COM ÁLCOOL';
+    subLabel = 'NOVA VALIDAÇÃO NECESSÁRIA';
   } else if (ignitionState === 'UNLOCKED_READY') {
     ringClasses = 'border-emerald-500 bg-emerald-950/70 text-emerald-300 shadow-emerald-900/50 ring-4 ring-emerald-500/30 hover:scale-105';
     label = 'START ENGINE';
@@ -78,7 +78,7 @@ export const IgnitionButton: React.FC<Props> = ({
           Controle de Ignição Eletrônica
         </span>
         <span className="px-1.5 py-0.2 rounded text-[8px] bg-cyan-950 text-cyan-300 border border-cyan-800 font-mono">
-          DADSS TOUCH
+          TOQUE CONCEITUAL
         </span>
       </div>
 
@@ -126,7 +126,7 @@ export const IgnitionButton: React.FC<Props> = ({
       <div className="mt-2 text-center">
         <span className="text-[10px] text-slate-500 flex items-center justify-center gap-1">
           <Sparkles className="w-3 h-3 text-cyan-400" />
-          Superfície de toque com leitura óptica espectroscópica integrada
+          Simulação de superfície de toque inspirada em pesquisa óptica
         </span>
       </div>
 

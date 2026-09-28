@@ -12,14 +12,14 @@ import { TechnicalSpecsModal } from './components/TechnicalSpecsModal';
 import { RegisterTrustedDriverModal } from './components/RegisterTrustedDriverModal';
 import { AlternativeDriverAlertModal } from './components/AlternativeDriverAlertModal';
 import { soundEffects } from './services/audioService';
-import { DriverProfile, IgnitionState, SeatSensors, TelemetryLog, VehicleTelemetry, TrustedAlternativeDriver, DetectionMethod } from './types';
+import { DriverProfile, IgnitionState, SeatSensors, TelemetryLog, VehicleTelemetry, TrustedAlternativeDriver, DetectionMethod, ValidationStatus } from './types';
 import { ShieldCheck, ShieldAlert, AlertTriangle, BookOpen, RotateCcw, UserCheck, BellRing, Hand, Wind, Sliders } from 'lucide-react';
 
 const INITIAL_DRIVER: DriverProfile = {
   id: 'driver-carlos',
   name: 'Carlos Mendes',
   role: 'condutor_inicial',
-  cnh: '04829103942',
+  cnh: 'DEMO-CNH-001',
   lastTestBAC: null,
   testPassed: null,
   detectionMethodUsed: 'TOUCH_PALM_STEERING',
@@ -28,11 +28,11 @@ const INITIAL_DRIVER: DriverProfile = {
 const INITIAL_TRUSTED_DRIVER: TrustedAlternativeDriver = {
   id: 'alt-driver-mariana',
   name: 'Mariana Silva',
-  phone: '+55 (11) 98765-4321',
+  phone: '+55 (83) 90000-0000',
   relationship: 'Cônjuge / Amiga da Rodada',
-  cnh: '98471204938',
-  pairedDeviceId: 'BLE-DEV-4A8F',
-  pairedDeviceName: 'iPhone 15 Pro de Mariana (BLE)',
+  cnh: 'DEMO-CNH-002',
+  pairedDeviceId: 'DEMO-BLE-001',
+  pairedDeviceName: 'Dispositivo de demonstração (BLE)',
   deviceType: 'bluetooth_key',
   confirmationPin: '2489',
   isDeviceDetected: false,
@@ -54,14 +54,7 @@ const INITIAL_LOGS: TelemetryLog[] = [
 export default function App() {
   const [ignitionState, setIgnitionState] = React.useState<IgnitionState>('OFF');
   const [currentDriver, setCurrentDriver] = React.useState<DriverProfile>(INITIAL_DRIVER);
-  const [trustedDriver, setTrustedDriver] = React.useState<TrustedAlternativeDriver>(() => {
-    try {
-      const saved = localStorage.getItem('alcolock_trusted_driver');
-      return saved ? JSON.parse(saved) : INITIAL_TRUSTED_DRIVER;
-    } catch {
-      return INITIAL_TRUSTED_DRIVER;
-    }
-  });
+  const [trustedDriver, setTrustedDriver] = React.useState<TrustedAlternativeDriver>(INITIAL_TRUSTED_DRIVER);
   const [selectedMethod, setSelectedMethod] = React.useState<DetectionMethod>('TOUCH_PALM_STEERING');
   const [safeThreshold, setSafeThreshold] = React.useState<number>(0.00);
 
@@ -84,14 +77,8 @@ export default function App() {
 
   const [lastBAC, setLastBAC] = React.useState<number | null>(null);
   const [soundEnabled, setSoundEnabled] = React.useState<boolean>(true);
-  const [logs, setLogs] = React.useState<TelemetryLog[]>(() => {
-    try {
-      const saved = localStorage.getItem('alcolock_telemetry_logs');
-      return saved ? JSON.parse(saved) : INITIAL_LOGS;
-    } catch {
-      return INITIAL_LOGS;
-    }
-  });
+  const [logs, setLogs] = React.useState<TelemetryLog[]>(INITIAL_LOGS);
+  const [validationStatus, setValidationStatus] = React.useState<ValidationStatus>('PENDING');
 
   // Modals
   const [isReplacementModalOpen, setIsReplacementModalOpen] = React.useState<boolean>(false);
@@ -105,22 +92,7 @@ export default function App() {
   const [isTesting, setIsTesting] = React.useState<boolean>(false);
   const [testProgress, setTestProgress] = React.useState<number>(0);
 
-  // Save logs & trusted driver
-  React.useEffect(() => {
-    try {
-      localStorage.setItem('alcolock_telemetry_logs', JSON.stringify(logs));
-    } catch {
-      // Storage safety
-    }
-  }, [logs]);
-
-  React.useEffect(() => {
-    try {
-      localStorage.setItem('alcolock_trusted_driver', JSON.stringify(trustedDriver));
-    } catch {
-      // Storage safety
-    }
-  }, [trustedDriver]);
+  // Dados pessoais e logs permanecem apenas na sessão atual deste protótipo.
 
   // Telemetry loop when engine is running
   React.useEffect(() => {
@@ -139,23 +111,30 @@ export default function App() {
     return () => clearInterval(interval);
   }, [ignitionState]);
 
-  // Helper to add log
+  // Helper to add log. O nome pode ser informado explicitamente para evitar
+  // registrar o motorista anterior logo após uma troca de estado do React.
   const addLog = (
     eventType: TelemetryLog['eventType'],
     details: string,
-    bacReading?: number
+    bacReading?: number,
+    driverName: string = currentDriver.name
   ) => {
     const newLog: TelemetryLog = {
       id: `log-${Date.now()}-${Math.random().toString(36).slice(2, 6)}`,
       timestamp: Date.now(),
       eventType,
-      driverName: currentDriver.name,
+      driverName,
       bacReading,
       details,
       vehicleStatus: ignitionState,
     };
     setLogs((prev) => [newLog, ...prev]);
   };
+
+  const formatSimulatedReading = (value: number, method: DetectionMethod) =>
+    method === 'BREATHALYZER'
+      ? `${value.toFixed(2)} mg/L (simulado)`
+      : `${value.toFixed(2)} índice simulado`;
 
   // Perform Alcohol Test on the Driver's Seat
   const executeAlcoholTest = (targetBAC: number, method?: DetectionMethod) => {
@@ -168,12 +147,13 @@ export default function App() {
 
     setIsTesting(true);
     setTestProgress(0);
+    setValidationStatus('TESTING');
     setIgnitionState('TESTING');
 
     if (activeMethod === 'TOUCH_PALM_STEERING') {
       addLog(
         'PALM_SCAN_STARTED',
-        `Iniciando leitura óptica NIR na palma da mão (1450 nm & 1680 nm). Verificando perfusão capilar dérmica e peso no assento (72 kg)...`
+        `Iniciando simulação de leitura óptica por toque inspirada em pesquisa de espectroscopia de tecido. Nenhum sensor físico real está conectado.`
       );
       if (soundEnabled) {
         soundEffects.playRelayClick();
@@ -201,6 +181,7 @@ export default function App() {
     setLastBAC(bac);
 
     const isSober = bac <= safeThreshold;
+    setValidationStatus(isSober ? 'APPROVED' : 'NOT_APPROVED');
 
     setCurrentDriver((prev) => ({
       ...prev,
@@ -212,33 +193,35 @@ export default function App() {
 
     if (isSober) {
       setIgnitionState('UNLOCKED_READY');
+      setValidationStatus('APPROVED');
       if (soundEnabled) {
         soundEffects.playUnlockChime();
       }
       if (methodUsed === 'TOUCH_PALM_STEERING') {
         addLog(
           'PALM_SCAN_PASSED',
-          `DUPLA VALIDAÇÃO APROVADA: Banco do motorista ocupado + Leitura óptica da palma da mão limpa (0,00 g/L). Partida autorizada sem necessidade de sopro!`,
+          `SIMULAÇÃO APROVADA: banco ocupado + leitura por toque dentro do limite configurado (${formatSimulatedReading(bac, methodUsed)}). Partida simulada autorizada.`,
           bac
         );
       } else {
-        addLog('TEST_PASSED', `Teste de sobriedade aprovado (${bac.toFixed(2)} mg/L). Partida autorizada.`, bac);
+        addLog('TEST_PASSED', `Validação simulada aprovada (${formatSimulatedReading(bac, methodUsed)}). Partida simulada autorizada.`, bac);
       }
     } else {
       setIgnitionState('LOCKED');
+      setValidationStatus('NOT_APPROVED');
       if (soundEnabled) {
         soundEffects.playLockoutAlarm();
       }
       if (methodUsed === 'TOUCH_PALM_STEERING') {
         addLog(
           'PALM_SCAN_FAILED_LOCKED',
-          `BLOQUEIO DADSS NO VOLANTE: Etanol detectado nos vasos capilares da palma (${bac.toFixed(2)} g/L). Corte elétrico da partida acionado. Sugira um condutor substituto.`,
+          `SIMULAÇÃO NÃO APROVADA: leitura por toque acima do limite configurado (${formatSimulatedReading(bac, methodUsed)}). Partida simulada mantida bloqueada; sugerir condutor substituto.`,
           bac
         );
       } else {
         addLog(
           'TEST_FAILED_LOCKED',
-          `BLOQUEIO DE PARTIDA: Teor de álcool detectado (${bac.toFixed(2)} mg/L) acima da tolerância (${safeThreshold.toFixed(2)} mg/L). Ignição desabilitada até substituição por condutor que não tenha ingerido álcool.`,
+          `SIMULAÇÃO NÃO APROVADA: leitura (${formatSimulatedReading(bac, methodUsed)}) acima do limite configurado (${safeThreshold.toFixed(2)}). Partida simulada bloqueada até nova validação.`,
           bac
         );
       }
@@ -295,7 +278,7 @@ export default function App() {
       soundEffects.playRelayClick();
       soundEffects.playLockoutAlarm();
     }
-    addLog('TEST_FAILED_LOCKED', `Tentativa de partida impedida. Condutor sob efeito de álcool. Ignição bloqueada.`);
+    addLog('TEST_FAILED_LOCKED', `Tentativa de partida simulada impedida após validação não aprovada. Nenhuma conclusão clínica é feita pelo protótipo.`);
     setIsAltDriverAlertModalOpen(true);
   };
 
@@ -307,12 +290,31 @@ export default function App() {
     executeAlcoholTest(0.28);
   };
 
+  const handleNonConclusiveResult = (status: 'INCONCLUSIVE' | 'SENSOR_UNAVAILABLE') => {
+    setIsTesting(false);
+    setTestProgress(0);
+    setLastBAC(null);
+    setIgnitionState('OFF');
+    setValidationStatus(status);
+    setCurrentDriver((prev) => ({
+      ...prev,
+      lastTestBAC: null,
+      lastTestTimestamp: Date.now(),
+      testPassed: null,
+    }));
+    addLog(
+      status === 'INCONCLUSIVE' ? 'TEST_INCONCLUSIVE' : 'SENSOR_UNAVAILABLE',
+      status === 'INCONCLUSIVE'
+        ? 'Resultado inconclusivo na simulação. A partida permanece indisponível até uma nova validação.'
+        : 'Sensor indisponível na simulação. A partida permanece indisponível até restabelecimento e nova validação.'
+    );
+  };
   // Trusted Alternative Driver Handlers
   const handleSaveTrustedDriver = (updated: TrustedAlternativeDriver) => {
     setTrustedDriver(updated);
     addLog(
       'TRUSTED_DRIVER_REGISTERED',
-      `Motorista alternativo de confiança cadastrado: ${updated.name} (${updated.relationship}, Tel: ${updated.phone}, Dispositivo: ${updated.pairedDeviceName}, PIN: ${updated.confirmationPin}).`
+      `Cadastro de motorista alternativo atualizado. Telefone, CNH, dispositivo e PIN foram omitidos do log.`
     );
   };
 
@@ -327,7 +329,7 @@ export default function App() {
     }
     addLog(
       'ALTERNATIVE_DRIVER_NOTIFIED',
-      `Alerta de emergência e rota GPS transmitidos para motorista alternativo cadastrado: ${trustedDriver.name} (${trustedDriver.phone}).`
+      `Notificação simulada enviada ao motorista alternativo cadastrado. Dados de contato e localização foram omitidos do log.`
     );
   };
 
@@ -339,14 +341,17 @@ export default function App() {
       isDeviceDetected: true,
     }));
     setCurrentDriver(newDriverProfile);
-    setLastBAC(0.00);
-    setIgnitionState('UNLOCKED_READY');
+    setLastBAC(newDriverProfile.lastTestBAC);
+    setValidationStatus(newDriverProfile.testPassed === true ? 'APPROVED' : 'PENDING');
+    setIgnitionState(newDriverProfile.testPassed === true ? 'UNLOCKED_READY' : 'OFF');
     if (soundEnabled) {
       soundEffects.playUnlockChime();
     }
     addLog(
       'ALTERNATIVE_DRIVER_CONFIRMED',
-      `Presença de ${newDriverProfile.name} confirmada no banco via pareamento BLE/PIN. Bafômetro comprovou sobriedade (0,00 mg/L). Ignição autorizada!`
+      `Presença e validação simuladas concluídas para o motorista substituto. ${newDriverProfile.testPassed ? 'Partida simulada autorizada.' : 'Nova validação necessária.'}`,
+      newDriverProfile.lastTestBAC ?? undefined,
+      newDriverProfile.name
     );
     setIsAltDriverAlertModalOpen(false);
   };
@@ -358,23 +363,27 @@ export default function App() {
 
     if (newDriver.lastTestBAC === 0) {
       setIgnitionState('UNLOCKED_READY');
+      setValidationStatus('APPROVED');
       if (soundEnabled) {
         soundEffects.playUnlockChime();
       }
       addLog(
         'DRIVER_REPLACED',
-        `Substituição efetuada com sucesso: ${newDriver.name} assumiu o banco do motorista e comprovou sobriedade (0,00 mg/L). Partida liberada!`,
-        0.00
+        `Substituição concluída: novo condutor realizou validação simulada aprovada. Partida simulada liberada.`,
+        0.00,
+        newDriver.name
       );
     } else {
       setIgnitionState('LOCKED');
+      setValidationStatus('NOT_APPROVED');
       if (soundEnabled) {
         soundEffects.playLockoutAlarm();
       }
       addLog(
         'DRIVER_REPLACED',
-        `Tentativa de substituição rejeitada: ${newDriver.name} também reprovou no teste de álcool (${newDriver.lastTestBAC?.toFixed(2)} mg/L). Veículo permanece bloqueado.`,
-        newDriver.lastTestBAC || 0.35
+        `Substituição não liberada: a validação simulada do novo condutor não foi aprovada. Veículo permanece bloqueado.`,
+        newDriver.lastTestBAC || 0.35,
+        newDriver.name
       );
     }
   };
@@ -388,6 +397,7 @@ export default function App() {
     setIgnitionState('OFF');
     setCurrentDriver(INITIAL_DRIVER);
     setLastBAC(null);
+    setValidationStatus('PENDING');
     setTelemetry({
       speedKmh: 0,
       rpm: 0,
@@ -430,10 +440,10 @@ export default function App() {
               </div>
               <div>
                 <h2 className="text-sm sm:text-base font-black text-rose-300 uppercase tracking-wide">
-                  BLOQUEIO VEICULAR ATIVO: INGESTÃO DE ÁLCOOL CONSTATADA NO BANCO DO MOTORISTA
+                  BLOQUEIO PREVENTIVO SIMULADO: VALIDAÇÃO NÃO APROVADA
                 </h2>
                 <p className="text-xs text-rose-200 mt-1 leading-relaxed">
-                  <strong>O carro não pode ser ligado devido à detecção de álcool no motorista ({currentDriver.name}).</strong> Sugerimos providenciar um motorista alternativo para conduzir o veículo. O carro permanecerá bloqueado até que o condutor seja substituído por outro sem álcool.
+                  <strong>A partida simulada está bloqueada após uma leitura acima do limite configurado para {currentDriver.name}.</strong> O protótipo não realiza diagnóstico clínico nem comprovação legal. Uma nova validação ou um motorista alternativo pode prosseguir no fluxo.
                 </p>
               </div>
             </div>
@@ -521,7 +531,7 @@ export default function App() {
                 }`}
               >
                 <Hand className="w-3.5 h-3.5" />
-                <span>Volante Óptico (DADSS)</span>
+                <span>Volante Óptico (conceito)</span>
               </button>
               <button
                 id="tab-center-ignition"
@@ -563,7 +573,7 @@ export default function App() {
                   {ignitionState === 'LOCKED' ? (
                     <div className="text-rose-400 font-bold flex items-center justify-center gap-1.5">
                       <AlertTriangle className="w-4 h-4 text-rose-500 shrink-0" />
-                      <span>Corte elétrico da partida ativo pela ECU</span>
+                      <span>Bloqueio de partida ativo na simulação</span>
                     </div>
                   ) : ignitionState === 'UNLOCKED_READY' ? (
                     <div className="text-emerald-400 font-bold flex items-center justify-center gap-1.5">
@@ -576,7 +586,7 @@ export default function App() {
                     </div>
                   ) : (
                     <div className="text-slate-400">
-                      Sensor no assento ativo (72 kg). Toque o anel óptico ou segure o volante para validar sobriedade.
+                      Sensor de assento simulado ativo. Use o toque ou o bafômetro para executar uma validação demonstrativa.
                     </div>
                   )}
                 </div>
@@ -599,6 +609,8 @@ export default function App() {
               onSetSafeThreshold={setSafeThreshold}
               selectedMethod={selectedMethod}
               onSelectMethod={setSelectedMethod}
+              validationStatus={validationStatus}
+              onSimulateNonConclusive={handleNonConclusiveResult}
             />
           </div>
         </div>
@@ -607,7 +619,7 @@ export default function App() {
         <div className="pt-4 border-t border-slate-900 flex flex-wrap items-center justify-between gap-3 text-xs text-slate-500">
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-emerald-500" />
-            <span>Em conformidade com a Lei 11.705 (Lei Seca) e normas automotivas Alcolock EN 50436.</span>
+            <span>Protótipo acadêmico: referências legais e técnicas são informativas e não representam homologação ou conformidade certificada.</span>
           </div>
 
           <button

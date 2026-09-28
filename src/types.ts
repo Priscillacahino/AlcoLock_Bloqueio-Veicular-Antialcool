@@ -1,10 +1,18 @@
 export type IgnitionState =
   | 'OFF'             // Desligado, aguardando teste obrigatório
   | 'TESTING'         // Testando amostra alveolar / biometria
-  | 'LOCKED'          // Bloqueio de partida ativo - Álcool detectado!
-  | 'UNLOCKED_READY'  // Teste aprovado 0.00 mg/L - Pronto para ligar
+  | 'LOCKED'          // Bloqueio preventivo ativo após validação não aprovada
+  | 'UNLOCKED_READY'  // Validação simulada aprovada - pronto para partida simulada
   | 'STARTING'        // Acionando motor de arranque
   | 'RUNNING';        // Motor em funcionamento
+
+export type ValidationStatus =
+  | 'PENDING'
+  | 'TESTING'
+  | 'APPROVED'
+  | 'NOT_APPROVED'
+  | 'INCONCLUSIVE'
+  | 'SENSOR_UNAVAILABLE';
 
 export type DetectionMethod =
   | 'TOUCH_PALM_STEERING' // Leitura óptica no volante pela palma da mão (DADSS NIR)
@@ -26,7 +34,7 @@ export interface DriverProfile {
   role: 'condutor_inicial' | 'condutor_substituto';
   cnh: string;
   avatarUrl?: string;
-  lastTestBAC: number | null; // mg/L ou g/L
+  lastTestBAC: number | null; // valor da simulação; unidade depende do método e deve ser exibida explicitamente
   lastTestTimestamp?: number;
   testPassed: boolean | null;
   detectionMethodUsed?: DetectionMethod;
@@ -77,6 +85,8 @@ export interface TelemetryLog {
     | 'TEST_STARTED'
     | 'TEST_PASSED'
     | 'TEST_FAILED_LOCKED'
+    | 'TEST_INCONCLUSIVE'
+    | 'SENSOR_UNAVAILABLE'
     | 'PALM_SCAN_STARTED'
     | 'PALM_SCAN_PASSED'
     | 'PALM_SCAN_FAILED_LOCKED'

@@ -45,14 +45,14 @@ export const SmartSteeringWheel: React.FC<Props> = ({
           <div>
             <div className="flex items-center gap-2">
               <h3 className="font-bold text-sm tracking-wide text-white uppercase">
-                Volante Inteligente • Sensor Óptico DADSS
+                Volante Inteligente • Sensor Óptico Conceitual
               </h3>
               <span className="px-2 py-0.5 rounded text-[9px] font-bold bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 uppercase">
-                Infravermelho NIR
+                Referência de pesquisa
               </span>
             </div>
             <p className="text-[11px] text-slate-400">
-              Espectroscopia óptica da palma da mão: mede o álcool nos capilares sem soprar
+              Simulação inspirada em pesquisa de espectroscopia de tecido; hardware real não implementado
             </p>
           </div>
         </div>
@@ -101,7 +101,7 @@ export const SmartSteeringWheel: React.FC<Props> = ({
               strokeWidth="12"
             />
 
-            {/* Left Palm Optical Touch Zone (DADSS NIR) */}
+            {/* Left Palm Optical Touch Zone (CONCEITO NIR) */}
             <circle
               cx="100"
               cy="100"
@@ -122,7 +122,7 @@ export const SmartSteeringWheel: React.FC<Props> = ({
               className={`transition-colors duration-300 ${isScanning ? 'animate-pulse' : ''}`}
             />
 
-            {/* Right Palm Optical Touch Zone (DADSS NIR) */}
+            {/* Right Palm Optical Touch Zone (CONCEITO NIR) */}
             <circle
               cx="100"
               cy="100"
@@ -159,10 +159,10 @@ export const SmartSteeringWheel: React.FC<Props> = ({
                 : 'text-emerald-400'
             }`} />
             <span className="text-[9px] font-mono font-bold tracking-widest text-slate-300">
-              DADSS
+              CONCEITO
             </span>
             <span className="text-[8px] text-slate-400 font-mono">
-              NIR 1450nm
+              ÓPTICO
             </span>
           </div>
 
@@ -207,13 +207,13 @@ export const SmartSteeringWheel: React.FC<Props> = ({
         <div className="w-full mt-3 grid grid-cols-3 gap-2 text-center text-xs">
           <div className="p-2 rounded-lg bg-slate-900/80 border border-slate-800">
             <span className="text-[10px] text-slate-400 block">Espectro NIR:</span>
-            <span className="font-mono font-bold text-cyan-400 text-xs">1.450 nm & 1.680 nm</span>
+            <span className="font-mono font-bold text-cyan-400 text-xs">faixa óptica conceitual</span>
           </div>
           <div className="p-2 rounded-lg bg-slate-900/80 border border-slate-800">
             <span className="text-[10px] text-slate-400 block">Fluxo Capilar (Pulso):</span>
             <span className="font-mono font-bold text-emerald-400 text-xs flex items-center justify-center gap-1">
               <Activity className="w-3 h-3 animate-pulse" />
-              74 BPM (Tecido Vivo)
+              sinal simulado
             </span>
           </div>
           <div className="p-2 rounded-lg bg-slate-900/80 border border-slate-800">
@@ -230,9 +230,9 @@ export const SmartSteeringWheel: React.FC<Props> = ({
               {isScanning
                 ? `Analisando tecidos (${scanProgress}%)...`
                 : isLocked
-                ? `Álcool: ${lastReading?.toFixed(2)} g/L`
+                ? `Leitura: ${lastReading?.toFixed(2)} índice`
                 : isSober
-                ? 'Sóbrio: 0,00 g/L'
+                ? 'Aprovado: índice 0,00'
                 : 'Aguardando toque'}
             </span>
           </div>
@@ -246,7 +246,7 @@ export const SmartSteeringWheel: React.FC<Props> = ({
             Simular Contato da Palma no Volante:
           </span>
           <span className="text-[11px] text-slate-400">
-            Tempo de resposta: ~2,5 segundos
+            Tempo de resposta: animação de demonstração
           </span>
         </div>
 
@@ -263,8 +263,8 @@ export const SmartSteeringWheel: React.FC<Props> = ({
                 <CheckCircle2 className="w-4 h-4" />
               </div>
               <div className="text-left">
-                <div className="font-bold text-xs text-white">Palma Sóbria (0,00 g/L)</div>
-                <div className="text-[10px] text-emerald-300/80">Sem álcool detectado nos capilares</div>
+                <div className="font-bold text-xs text-white">Cenário aprovado (índice 0,00)</div>
+                <div className="text-[10px] text-emerald-300/80">Leitura simulada dentro do limite</div>
               </div>
             </div>
             <span className="px-2 py-1 rounded bg-emerald-500/20 text-emerald-300 font-mono text-[10px] font-bold">
@@ -284,8 +284,8 @@ export const SmartSteeringWheel: React.FC<Props> = ({
                 <AlertOctagon className="w-4 h-4" />
               </div>
               <div className="text-left">
-                <div className="font-bold text-xs text-white">Palma com Álcool (0,35 g/L)</div>
-                <div className="text-[10px] text-rose-300/80">Simular ingestão alcoólica & bloqueio</div>
+                <div className="font-bold text-xs text-white">Cenário acima do limite (índice 0,35)</div>
+                <div className="text-[10px] text-rose-300/80">Simular leitura acima do limite & bloqueio</div>
               </div>
             </div>
             <span className="px-2 py-1 rounded bg-rose-500/20 text-rose-300 font-mono text-[10px] font-bold">
@@ -298,10 +298,10 @@ export const SmartSteeringWheel: React.FC<Props> = ({
         <div className="p-3 rounded-xl bg-slate-950/60 border border-slate-800 text-[11px] text-slate-400 space-y-1">
           <div className="flex items-center gap-1.5 text-cyan-400 font-semibold">
             <Sparkles className="w-3.5 h-3.5" />
-            <span>Como funciona a Leitura Óptica pela Palma da Mão (DADSS):</span>
+            <span>Como funciona a Leitura Óptica pela Palma da Mão (CONCEITO):</span>
           </div>
           <p className="leading-relaxed">
-            Feixes de luz infravermelha próxima (NIR) penetram as camadas superficiais da derme da palma. O etanol presente no sangue dos capilares absorve comprimentos de onda específicos. A luz refletida é captada por fotodetectores para calcular a taxa de álcool instantaneamente, sem necessidade de sopro ativo.
+            Pesquisas de espectroscopia de tecido investigam estimativas de álcool por contato óptico. Nesta interface isso é apenas uma simulação conceitual: não há sensor físico, calibração, precisão certificada ou leitura clínica.
           </p>
         </div>
       </div>

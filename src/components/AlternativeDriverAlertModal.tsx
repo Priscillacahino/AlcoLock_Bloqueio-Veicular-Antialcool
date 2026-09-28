@@ -111,7 +111,7 @@ export const AlternativeDriverAlertModal: React.FC<Props> = ({
       id: trustedDriver.id || 'alt-driver-01',
       name: trustedDriver.name,
       role: 'condutor_substituto',
-      cnh: trustedDriver.cnh || '98471204938',
+      cnh: trustedDriver.cnh || 'DEMO-CNH-002',
       avatarUrl: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80',
       lastTestBAC: 0.00,
       lastTestTimestamp: Date.now(),
@@ -191,10 +191,10 @@ export const AlternativeDriverAlertModal: React.FC<Props> = ({
                 <AlertTriangle className="w-5 h-5 text-red-400 shrink-0 mt-0.5" />
                 <div className="text-xs space-y-1">
                   <p className="font-semibold text-red-200">
-                    Álcool detectado ({currentBacReading.toFixed(2)} mg/L) — Partida Inibida
+                    Validação simulada não aprovada ({currentBacReading.toFixed(2)} mg/L simulado) — Partida Inibida
                   </p>
                   <p className="text-slate-300 text-[11px]">
-                    Conforme protocolo de segurança veicular, o motorista atual não pode conduzir. Você possui um motorista alternativo cadastrado para assumir o controle com segurança.
+                    Na demonstração, a partida permanece bloqueada até uma nova validação. Há um motorista alternativo cadastrado para seguir o fluxo de substituição.
                   </p>
                 </div>
               </div>
@@ -206,7 +206,7 @@ export const AlternativeDriverAlertModal: React.FC<Props> = ({
                     Motorista de Confiança Cadastrado
                   </span>
                   <span className="px-2 py-0.5 rounded-full bg-emerald-950 border border-emerald-800 text-emerald-400 text-[10px] font-medium flex items-center gap-1">
-                    <ShieldCheck className="w-3 h-3" /> Habilitação Ativa
+                    <ShieldCheck className="w-3 h-3" /> Cadastro de demonstração
                   </span>
                 </div>
 
@@ -230,7 +230,7 @@ export const AlternativeDriverAlertModal: React.FC<Props> = ({
                     Localização enviada via GPS:
                   </div>
                   <p className="text-slate-400 font-mono text-[10px]">
-                    Lat: -23.550520, Long: -46.633308 (Av. Paulista, São Paulo - SP)
+                    Localização simulada — somente mediante permissão do usuário em uma implementação real
                   </p>
                 </div>
               </div>
@@ -277,7 +277,7 @@ export const AlternativeDriverAlertModal: React.FC<Props> = ({
                     ALERTA ALCOLOCK VEICULAR
                   </div>
                   <p className="text-xs text-slate-200 leading-relaxed">
-                    "Olá {trustedDriver.name}! O veículo foi imobilizado devido a teste de álcool positivo do motorista. Como você é o(a) <strong>{trustedDriver.relationship}</strong> cadastrado(a), sua presença é solicitada para assumir o volante com segurança."
+                    "Olá {trustedDriver.name}! O veículo foi imobilizado devido a validação simulada não aprovada do motorista. Como você é o(a) <strong>{trustedDriver.relationship}</strong> cadastrado(a), sua presença é solicitada para assumir o volante com segurança."
                   </p>
                   <div className="pt-2 border-t border-slate-800 flex items-center justify-between text-[11px]">
                     <span className="text-slate-400">Distância estimada: 2 min a pé</span>
@@ -376,7 +376,7 @@ export const AlternativeDriverAlertModal: React.FC<Props> = ({
                   <div className="flex items-center gap-2">
                     <Hash className="w-4 h-4 text-amber-400" />
                     <span className="text-xs font-semibold text-white">
-                      Ou Digite o PIN de Confirmação ({trustedDriver.confirmationPin})
+                      Ou digite o PIN de confirmação
                     </span>
                   </div>
                 </div>
@@ -413,7 +413,7 @@ export const AlternativeDriverAlertModal: React.FC<Props> = ({
                     Presença de {trustedDriver.name} Confirmada no Banco do Motorista!
                   </div>
                   <p className="text-[11px] text-slate-300">
-                    O sensor biométrico detectou que {trustedDriver.name} assumiu o banco. Agora, deve realizar o sopro no bafômetro veicular para comprovar sobriedade (0.00 mg/L) e liberar a ignição.
+                    A presença simulada de {trustedDriver.name} foi confirmada. Agora é necessário concluir a validação por sopro antes da liberação da ignição na demonstração.
                   </p>
                   <button
                     id="btn-proceed-to-breath-test"
@@ -444,7 +444,7 @@ export const AlternativeDriverAlertModal: React.FC<Props> = ({
                   Teste de Bafômetro do Motorista Alternativo: {trustedDriver.name}
                 </h4>
                 <p className="text-xs text-slate-300">
-                  Para que a partida do motor seja autorizada, o bafômetro no banco deve registrar 0.00 mg/L no ar alveolar.
+                  Para a partida simulada ser autorizada, o cenário de demonstração exige uma leitura aprovada no teste de sopro.
                 </p>
               </div>
 
@@ -455,7 +455,7 @@ export const AlternativeDriverAlertModal: React.FC<Props> = ({
                     {altTestPassed ? '0.00 mg/L' : isAltTesting ? 'SOPRANDO...' : '0.00 mg/L'}
                   </div>
                   <div className="text-[11px] text-slate-400">
-                    Limite Seguro: <strong>0.00 mg/L</strong> (Tolerância Zero - Lei Seca)
+                    Limite configurado: <strong>0.00 mg/L</strong> (cenário demonstrativo)
                   </div>
                 </div>
 
@@ -482,7 +482,7 @@ export const AlternativeDriverAlertModal: React.FC<Props> = ({
                   <div className="space-y-3">
                     <div className="p-3 rounded-xl bg-emerald-950/70 border border-emerald-700 text-emerald-300 text-xs font-semibold flex items-center justify-center gap-2">
                       <CheckCircle2 className="w-5 h-5 text-emerald-400" />
-                      <span>Teste Aprovado! Sobriedade Verificada com Sucesso (0.00 mg/L).</span>
+                      <span>Validação simulada aprovada (0.00 mg/L no cenário).</span>
                     </div>
 
                     <button

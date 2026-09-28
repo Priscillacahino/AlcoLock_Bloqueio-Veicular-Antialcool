@@ -136,11 +136,11 @@ export const InstrumentCluster: React.FC<Props> = ({
                   BLOQUEIO DE PARTIDA ATIVADO
                 </h3>
                 <p className="text-xs text-rose-200 mt-1 font-medium">
-                  Álcool detectado no condutor do assento ({lastBAC ? `${lastBAC.toFixed(2)} mg/L` : 'Teor Positivo'}).
+                  Leitura simulada acima do limite configurado ({lastBAC ? `${lastBAC.toFixed(2)}` : 'resultado não aprovado'}).
                 </p>
                 <div className="mt-2 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-rose-900/60 border border-rose-600/80 text-rose-100 text-xs font-semibold">
                   <AlertOctagon className="w-3.5 h-3.5 text-rose-300" />
-                  Veículo Imobilizado: Tolerância 0,00 mg/L violada
+                  Partida simulada bloqueada: validação não aprovada
                 </div>
               </div>
 
@@ -151,7 +151,7 @@ export const InstrumentCluster: React.FC<Props> = ({
                   <span>Condição Obrigatória de Desbloqueio:</span>
                 </div>
                 <p className="text-[11px] text-slate-300">
-                  O motorista atual <strong>({driverName})</strong> está impedido de conduzir. O veículo permanecerá bloqueado até que <strong>seja substituído por outro condutor sóbrio</strong> (0,00 mg/L).
+                  A demonstração mantém o veículo bloqueado para <strong>{driverName}</strong> até uma nova validação aprovada ou a substituição do condutor.
                 </p>
               </div>
 
@@ -173,7 +173,7 @@ export const InstrumentCluster: React.FC<Props> = ({
               </div>
               <div>
                 <h3 className="text-emerald-400 text-lg font-black tracking-wide uppercase">
-                  CONDUTOR APROVADO: 0,00 mg/L
+                  VALIDAÇÃO APROVADA: CENÁRIO 0,00
                 </h3>
                 <p className="text-xs text-slate-300 mt-1">
                   Motorista <strong>{driverName}</strong> verificado com sucesso. Sem traços de álcool.
@@ -210,7 +210,7 @@ export const InstrumentCluster: React.FC<Props> = ({
                 VEÍCULO EM OPERAÇÃO
               </h3>
               <p className="text-xs text-slate-400">
-                Condutor: <span className="text-emerald-400 font-semibold">{driverName}</span> (Sóbrio - 0,00 mg/L)
+                Condutor: <span className="text-emerald-400 font-semibold">{driverName}</span> (validação simulada aprovada)
               </p>
               <div className="flex items-center gap-2 mt-2">
                 <span className="px-2.5 py-1 rounded bg-slate-800 border border-slate-700 text-cyan-300 font-mono text-xs">
@@ -232,7 +232,7 @@ export const InstrumentCluster: React.FC<Props> = ({
                   TESTE DE ÁLCOOL REQUERIDO
                 </h3>
                 <p className="text-xs text-slate-400 mt-1 max-w-sm">
-                  O veículo exige confirmação de sobriedade no banco do motorista antes de desbloquear o motor de arranque.
+                  O protótipo exige uma validação simulada antes de alterar o estado da partida.
                 </p>
               </div>
               <button

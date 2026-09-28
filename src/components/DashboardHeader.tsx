@@ -76,7 +76,7 @@ export const DashboardHeader: React.FC<Props> = ({
       {/* Middle Banner: Law & Safety protocol */}
       <div className="hidden md:flex items-center gap-2 text-slate-400 text-[11px]">
         <span className="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
-        <span>Tolerância Zero (Lei Seca): <strong>0,00 mg/L</strong></span>
+        <span>Limite configurado da simulação: <strong>0,00</strong></span>
         <span className="text-slate-600">|</span>
         <span>Condutor: <strong className="text-slate-200">{driverName}</strong></span>
       </div>

@@ -1,0 +1,19 @@
+categoria,subcategoria,variavel,unidade,valor,status,observacao
+CAPEX,Hardware,Sensor principal,R$, ,A cotar,Não inventar preço antes de cotação
+CAPEX,Hardware,Microcontrolador ou módulo de controle,R$, ,A cotar,
+CAPEX,Hardware,Alimentação gabinete e conexões,R$, ,A cotar,
+CAPEX,Integração,Instrumentação e bancada,R$, ,A cotar,
+CAPEX,Desenvolvimento,Horas de software,h, ,Não medido,Projeto acadêmico nesta fase
+CAPEX,Validação,Calibração e ensaios,R$, ,Não medido,
+OPEX,Manutenção,Reposição de sensores,R$/período, ,Futuro,
+OPEX,Manutenção,Recalibração,R$/período, ,Futuro,
+OPEX,Suporte,Atendimento e diagnóstico,R$/período, ,Futuro,
+OPEX,Conectividade,SMS dados ou notificações,R$/período, ,Futuro/opcional,
+OPEX,Nuvem,API banco telemetria e armazenamento,R$/período, ,Futuro/opcional,Somente se houver arquitetura em nuvem
+Métrica,Qualidade,Taxa de falha,%, ,Não medida,Necessita ensaios controlados
+Métrica,Qualidade,Taxa de inconclusivos,%, ,Não medida,Necessita ensaios controlados
+Métrica,Qualidade,Falso positivo,%, ,Não medida,Necessita referência de verdade
+Métrica,Qualidade,Falso negativo,%, ,Não medida,Necessita referência de verdade
+Métrica,Financeira,TCO,R$, ,A calcular,Após custos reais
+Métrica,Financeira,Custo por veículo,R$/veículo, ,A calcular,Após TCO e quantidade
+Métrica,Financeira,Custo por validação útil,R$/teste, ,A calcular,Após custos operacionais e volume de testes

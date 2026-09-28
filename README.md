@@ -645,6 +645,19 @@ O foco não é apresentar o AlcoLock como produto pronto, mas **documentar a evo
 
 ---
 
+
+## 💰 Análise financeira e estatística
+
+O projeto também passou a documentar sua viabilidade econômica de forma **simples e sem inventar valores**. A análise separa investimento inicial (CAPEX), custos recorrentes (OPEX), TCO, custo por veículo, custo por validação, riscos e métricas que poderão ser calculadas quando existirem testes e cotações reais.
+
+A pesquisa pública de acidentes é usada como contexto e **não como base para estimar a probabilidade de acidentes ou a eficácia do sistema**, pois não contém uma população de exposição adequada para esse cálculo.
+
+FinOps aparece apenas como evolução futura caso o projeto adote infraestrutura em nuvem para telemetria, APIs, armazenamento ou alertas.
+
+- [Análise financeira e estatística](docs/analise-financeira-estatistica.md)
+- [Modelo de dados financeiros](data/modelo_financeiro_alcolock.csv)
+
+---
 # 📌 Status
 
 **Em desenvolvimento — projeto acadêmico/de aprendizagem.**

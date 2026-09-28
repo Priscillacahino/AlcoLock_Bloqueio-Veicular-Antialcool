@@ -1,6 +1,6 @@
 import React from 'react';
 import { Wind, Fingerprint, Camera, ShieldCheck, ShieldAlert, Sparkles, Activity, AlertOctagon, UserCheck, BellRing, Settings2, Sliders, Hand, Waves } from 'lucide-react';
-import { IgnitionState, TrustedAlternativeDriver, DetectionMethod } from '../types';
+import { IgnitionState, TrustedAlternativeDriver, DetectionMethod, ValidationStatus } from '../types';
 
 interface Props {
   ignitionState: IgnitionState;
@@ -15,6 +15,8 @@ interface Props {
   onSetSafeThreshold: (val: number) => void;
   selectedMethod: DetectionMethod;
   onSelectMethod: (method: DetectionMethod) => void;
+  validationStatus: ValidationStatus;
+  onSimulateNonConclusive: (status: 'INCONCLUSIVE' | 'SENSOR_UNAVAILABLE') => void;
 }
 
 export const AlcoholTestPanel: React.FC<Props> = ({
@@ -30,6 +32,8 @@ export const AlcoholTestPanel: React.FC<Props> = ({
   onSetSafeThreshold,
   selectedMethod,
   onSelectMethod,
+  validationStatus,
+  onSimulateNonConclusive,
 }) => {
   const [selectedPreset, setSelectedPreset] = React.useState<number>(0.28);
   const [customBAC, setCustomBAC] = React.useState<number>(0.28);
@@ -93,16 +97,16 @@ export const AlcoholTestPanel: React.FC<Props> = ({
             </h4>
             <span className="text-[10px] text-slate-400">
               {selectedMethod === 'TOUCH_PALM_STEERING'
-                ? 'Espectroscopia Óptica NIR na Palma da Mão (DADSS) no Volante'
+                ? 'Simulação de leitura óptica por toque — referência de pesquisa'
                 : selectedMethod === 'TOUCH_START_BUTTON'
-                ? 'Sensor Óptico de Toque DADSS no Botão Start/Stop'
+                ? 'Simulação de leitura óptica no botão Start/Stop'
                 : 'Sensor Eletroquímico de Ar Alveolar (Bafômetro)'}
             </span>
           </div>
         </div>
 
         <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-cyan-500/10 text-cyan-300 border border-cyan-500/30">
-          DADSS / CAN-BUS
+          CONCEITO / SIMULAÇÃO
         </span>
       </div>
 
@@ -152,7 +156,7 @@ export const AlcoholTestPanel: React.FC<Props> = ({
       <div className="p-2.5 rounded-lg bg-slate-950/70 border border-slate-800 flex items-center justify-between text-xs">
         <div className="flex items-center gap-1.5 text-slate-300">
           <Sliders className="w-3.5 h-3.5 text-cyan-400" />
-          <span>Limite Seguro de Álcool:</span>
+          <span>Limite configurado da simulação:</span>
         </div>
         <div className="flex items-center gap-1.5">
           <button
@@ -164,7 +168,7 @@ export const AlcoholTestPanel: React.FC<Props> = ({
                 : 'bg-slate-900 text-slate-400 border border-slate-800'
             }`}
           >
-            0.00 g/L (Lei Seca)
+            0.00 (cenário base)
           </button>
           <button
             type="button"
@@ -175,11 +179,35 @@ export const AlcoholTestPanel: React.FC<Props> = ({
                 : 'bg-slate-900 text-slate-400 border border-slate-800'
             }`}
           >
-            0.04 g/L (Tolerância INMETRO)
+            0.04 (cenário alternativo)
           </button>
         </div>
       </div>
 
+      <div className="p-2.5 rounded-lg bg-slate-950/70 border border-slate-800 space-y-2">
+        <div className="flex items-center justify-between gap-2 text-[11px]">
+          <span className="text-slate-400">Resultado da validação:</span>
+          <span className="font-mono font-bold text-slate-200">{validationStatus}</span>
+        </div>
+        <div className="grid grid-cols-2 gap-2">
+          <button
+            type="button"
+            onClick={() => onSimulateNonConclusive('INCONCLUSIVE')}
+            disabled={ignitionState === 'RUNNING'}
+            className="px-2 py-1.5 rounded bg-slate-900 hover:bg-slate-800 border border-slate-700 text-[10px] text-slate-300 cursor-pointer"
+          >
+            Simular resultado inconclusivo
+          </button>
+          <button
+            type="button"
+            onClick={() => onSimulateNonConclusive('SENSOR_UNAVAILABLE')}
+            disabled={ignitionState === 'RUNNING'}
+            className="px-2 py-1.5 rounded bg-slate-900 hover:bg-slate-800 border border-slate-700 text-[10px] text-slate-300 cursor-pointer"
+          >
+            Simular sensor indisponível
+          </button>
+        </div>
+      </div>
       {/* Prominent Alcohol Detection Banner with Suggestion for Alternative Driver */}
       {isAlcoholDetected && (
         <div className="p-3.5 rounded-xl bg-gradient-to-r from-red-950/90 to-slate-950 border border-red-600/80 space-y-2.5 animate-in fade-in">
@@ -192,7 +220,7 @@ export const AlcoholTestPanel: React.FC<Props> = ({
                 Veículo Impossibilitado de Dar Partida
               </h5>
               <p className="text-[11px] text-red-300/90 leading-relaxed">
-                Álcool constatado no motorista ({lastBAC.toFixed(2)} {selectedMethod === 'BREATHALYZER' ? 'mg/L' : 'g/L'}). Conforme os protocolos de segurança veicular, o motor de arranque foi desativado. Sugerimos acionar um condutor sóbrio para prosseguir com a viagem.
+                Leitura simulada acima do limite configurado ({lastBAC.toFixed(2)} {selectedMethod === 'BREATHALYZER' ? 'mg/L (simulado)' : 'índice simulado'}). A partida permanece bloqueada na demonstração. O resultado não representa diagnóstico clínico, prova legal ou medição homologada.
               </p>
             </div>
           </div>
@@ -230,7 +258,7 @@ export const AlcoholTestPanel: React.FC<Props> = ({
               </div>
               <div className="text-left">
                 <div className="text-[11px] font-bold text-slate-200">Palma Esquerda</div>
-                <div className="text-[10px] text-slate-400">LED NIR 1450nm</div>
+                <div className="text-[10px] text-slate-400">Emissor óptico conceitual</div>
               </div>
             </div>
 
@@ -240,7 +268,7 @@ export const AlcoholTestPanel: React.FC<Props> = ({
               </div>
               <div className="text-left">
                 <div className="text-[11px] font-bold text-slate-200">Palma Direita</div>
-                <div className="text-[10px] text-slate-400">Fotodetector Capilar</div>
+                <div className="text-[10px] text-slate-400">Fotodetector conceitual</div>
               </div>
             </div>
 
@@ -262,7 +290,7 @@ export const AlcoholTestPanel: React.FC<Props> = ({
               </div>
               <div className="text-left">
                 <div className="text-[11px] font-bold text-slate-200">Botão Start/Stop</div>
-                <div className="text-[10px] text-slate-400">Anel Óptico DADSS</div>
+                <div className="text-[10px] text-slate-400">Sensor óptico conceitual</div>
               </div>
             </div>
 
@@ -350,12 +378,12 @@ export const AlcoholTestPanel: React.FC<Props> = ({
               {selectedMethod === 'TOUCH_PALM_STEERING' ? (
                 <>
                   <Hand className="w-4 h-4 text-cyan-400 animate-pulse" />
-                  Espectroscopia NIR: Analisando capilares da palma da mão...
+                  Simulação óptica: processando leitura de contato...
                 </>
               ) : selectedMethod === 'TOUCH_START_BUTTON' ? (
                 <>
                   <Fingerprint className="w-4 h-4 text-cyan-400 animate-pulse" />
-                  Sensor de Toque Start: Lendo tecido dérmico...
+                  Sensor de toque: processando leitura simulada...
                 </>
               ) : (
                 <>
@@ -377,15 +405,15 @@ export const AlcoholTestPanel: React.FC<Props> = ({
           <div className="flex items-center justify-between text-[11px] text-slate-400">
             <span>
               {selectedMethod === 'TOUCH_PALM_STEERING'
-                ? 'Emissor Infravermelho: 1450 nm & 1680 nm ativo'
+                ? 'Emissor óptico conceitual ativo'
                 : selectedMethod === 'TOUCH_START_BUTTON'
-                ? 'Anel DADSS: Verificando fluxo capilar'
+                ? 'Sensor de toque: verificando contato'
                 : 'Pressão do fluxo de ar: Adequada'}
             </span>
             <span>
               {selectedMethod === 'BREATHALYZER'
                 ? 'Sensor AlcoLock: Calculando mg/L'
-                : 'Sensor DADSS: Calculando g/L capilar'}
+                : 'Simulação por toque: calculando índice'}
             </span>
           </div>
         </div>
@@ -414,12 +442,12 @@ export const AlcoholTestPanel: React.FC<Props> = ({
               </div>
               <div>
                 <div className="text-xs font-bold text-emerald-200 group-hover:text-emerald-100">
-                  Condutor Sóbrio (0,00 {selectedMethod === 'BREATHALYZER' ? 'mg/L' : 'g/L'})
+                  Cenário aprovado (0,00 {selectedMethod === 'BREATHALYZER' ? 'mg/L simulado' : 'índice'})
                 </div>
                 <div className="text-[10px] text-emerald-300/80 mt-0.5">
                   {selectedMethod === 'TOUCH_PALM_STEERING'
-                    ? 'Palma da mão sem vestígio de etanol nos capilares. Libera a partida.'
-                    : 'Não ingeriu álcool. Libera a ignição do carro.'}
+                    ? 'Leitura simulada dentro do limite configurado. Libera a partida na demonstração.'
+                    : 'Leitura simulada dentro do limite. Libera a ignição na demonstração.'}
                 </div>
               </div>
             </button>
@@ -440,10 +468,10 @@ export const AlcoholTestPanel: React.FC<Props> = ({
               </div>
               <div>
                 <div className="text-xs font-bold text-rose-200 group-hover:text-rose-100">
-                  Ingeriu Álcool (0,28 {selectedMethod === 'BREATHALYZER' ? 'mg/L' : 'g/L'})
+                  Cenário acima do limite (0,28 {selectedMethod === 'BREATHALYZER' ? 'mg/L simulado' : 'índice'})
                 </div>
                 <div className="text-[10px] text-rose-300/80 mt-0.5">
-                  Álcool detectado via infravermelho. Desabilita ignição & sugere substituto.
+                  Leitura simulada acima do limite. Bloqueia a partida e sugere substituto.
                 </div>
               </div>
             </button>
@@ -460,7 +488,7 @@ export const AlcoholTestPanel: React.FC<Props> = ({
                   ? 'bg-rose-500/30 text-rose-300 animate-pulse'
                   : 'bg-amber-500/20 text-amber-300'
               }`}>
-                {customBAC.toFixed(2)} {selectedMethod === 'BREATHALYZER' ? 'mg/L' : 'g/L'} {customBAC === 0 ? '(Sóbrio)' : customBAC >= 0.34 ? '(Crime Trânsito)' : '(Infração)'}
+                {customBAC.toFixed(2)} {selectedMethod === 'BREATHALYZER' ? 'mg/L' : 'g/L'} {customBAC === 0 ? '(Aprovado)' : '(Acima do limite configurado)'}
               </span>
             </div>
 
@@ -476,10 +504,10 @@ export const AlcoholTestPanel: React.FC<Props> = ({
             />
 
             <div className="flex justify-between text-[10px] font-mono text-slate-500">
-              <span>0.00 (Sóbrio)</span>
-              <span>0.04 (Tolerância)</span>
-              <span>0.34 (Crime Art. 306)</span>
-              <span>1.00 (Severo)</span>
+              <span>0.00 (cenário base)</span>
+              <span>0.04 (cenário alternativo)</span>
+              <span>0.34 (exemplo de teste)</span>
+              <span>1.00 (máximo da simulação)</span>
             </div>
 
             <button
@@ -511,12 +539,12 @@ export const AlcoholTestPanel: React.FC<Props> = ({
             )}
             <div>
               <div className="font-bold">
-                Última Leitura: {lastBAC.toFixed(2)} mg/L (Limite: {safeThreshold.toFixed(2)} mg/L)
+                Última leitura: {lastBAC.toFixed(2)} {selectedMethod === 'BREATHALYZER' ? 'mg/L (simulado)' : 'índice simulado'} (limite do cenário: {safeThreshold.toFixed(2)})
               </div>
               <div className="text-[11px] opacity-80">
                 {lastBAC <= safeThreshold
-                  ? 'Sobriedade confirmada. Nenhuma molécula de etanol acima da tolerância.'
-                  : 'Presença de etanol confirmada. Ignição desabilitada até motorista alternativo assumir.'}
+                  ? 'Validação simulada aprovada para o cenário selecionado.'
+                  : 'Validação simulada não aprovada. Partida bloqueada até nova validação.'}
               </div>
             </div>
           </div>
@@ -540,7 +568,7 @@ export const AlcoholTestPanel: React.FC<Props> = ({
               </span>
             </div>
             <div className="text-[10px] text-slate-400">
-              Pareamento: {trustedDriver.pairedDeviceName} • PIN {trustedDriver.confirmationPin}
+              Pareamento: {trustedDriver.pairedDeviceName} • PIN protegido
             </div>
           </div>
         </div>
